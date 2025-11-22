@@ -1,59 +1,368 @@
-<!--Font Awesome CDN-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     
-<div class="container">
-
-    <div class="slide">
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - José Ricardo García Quispe</title>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3b82f6",
+                        "background-light": "#f0f2f5",
+                        "background-dark": "#0d1117",
+                        "text-main": "#111827",
+                        "text-main-dark": "#f0f6fc",
+                        "text-secondary": "#4b5563",
+                        "text-secondary-dark": "#8b949e",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#161b22",
+                        "border-light": "#d1d5db",
+                        "border-dark": "#30363d",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.8rem"
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        :root {
+            --background-light: #f0f2f5;
+            --background-dark: #0d1117;
+            --text-light: #111827;
+            --text-dark: #f0f6fc;
+            --primary-color: #3b82f6;
+            --border-light: #d1d5db; /* Updated from e5e7eb */
+            --border-dark: #30363d;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow: hidden;
+        }
+        body.dark {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: var(--background-light); z-index: 100; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            transition: opacity 0.5s ease-out;
+        }
+        body.dark #loader { background: var(--background-dark); }
+        #loader.fade-out { opacity: 0; }
+        .loader-title {
+            font-size: 2.5rem; font-weight: 700; opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .loader-title.visible { opacity: 1; transform: translateY(0); }
+        #progress-bar-container { width: 600px; height: 4px; background-color: #e5e7eb; border-radius: 2px; margin-top: 2rem; overflow: hidden; }
+        body.dark #progress-bar-container { background-color: #30363d; }
+        #progress-bar { width: 0%; height: 100%; background-color: var(--primary-color); transition: width 1s linear; }
         
-        <div class="item" style="background-image: url('images/Background%20Image.jfif');">
-            <div class="content">
-                <div class="name">Switzerland</div>
-                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                <button>See More</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url('images/First%20Card%20Image.jfif');">
-            <div class="content">
-                <div class="name">Finland</div>
-                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                <button>See More</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url('images/Foggy%20Meadow%20Peak.jfif');">
-            <div class="content">
-                <div class="name">Iceland</div>
-                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                <button>See More</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url('images/Inversion%20Landscape.jfif');">
-            <div class="content">
-                <div class="name">Australia</div>
-                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                <button>See More</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url('images/Misty%20Morning%20View.jfif');">
-            <div class="content">
-                <div class="name">Netherland</div>
-                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                <button>See More</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url('images/Third%20Card%20Image.jfif');">
-            <div class="content">
-                <div class="name">Ireland</div>
-                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                <button>See More</button>
-            </div>
-        </div>
+        #main-content { display: none; opacity: 0; transition: opacity 0.5s ease-in; }
+        #main-content.visible { display: block; opacity: 1; }
+        
+        .scroll-container { height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; }
+        .scroll-section { height: 100vh; width: 100%; scroll-snap-align: start; display: flex; align-items: center; justify-content: center; padding: 100px 2rem 2rem; overflow: hidden; position: relative; }
+        
+        /* Specific section styling */
+        #trayectoria {
+            height: auto;
+             min-height: 100vh;
+        }
+        footer.scroll-section { height: auto; min-height: 50vh; }
+        
+        /* Navigation Styling */
+        .main-nav .nav-link.active { background-color: #111827; color: #FFFFFF; }
+        .dark .main-nav .nav-link.active { background-color: #f0f6fc; color: #0d1117; }
+        .main-nav .nav-link { color: #4b5563; }
+        .dark .main-nav .nav-link { color: #8b949e; }
+        
+        /* Animation Styling */
+        .animate-on-scroll { opacity: 0; transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-up { transform: translateY(40px); }
+        .fade-in-down { transform: translateY(-40px); }
+        .fade-in-left { transform: translateX(-40px); }
+        .is-visible { opacity: 1; transform: none; }
+        .delay-100 { transition-delay: 0.1s; } .delay-200 { transition-delay: 0.2s; } .delay-300 { transition-delay: 0.3s; } .delay-400 { transition-delay: 0.4s; } .delay-500 { transition-delay: 0.5s; }
 
+        /* Timeline styling */
+        .timeline-container { position: relative; padding: 2rem 0; }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--border-light);
+        }
+        .dark .timeline-container::before { background-color: var(--border-dark); }
+        .timeline-item {
+            padding: 1rem 2rem;
+            position: relative;
+            width: 50%;
+        }
+        .timeline-item:nth-child(odd) { left: 0; padding-left: 0; text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        
+        .timeline-dot {
+            content: '';
+            position: absolute;
+            top: 1.5rem;
+            width: 16px;
+            height: 16px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+            transform: translateX(0);
+        }
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+            transform: translateX(0);
+        }
+        .timeline-content {
+            background: var(--surface-light);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border: 1px solid var(--border-light);
+        }
+        .dark .timeline-content {
+            background: var(--surface-dark);
+            border: 1px solid var(--border-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="text-center">
+            <h1 id="loader-title-1" class="loader-title text-text-main dark:text-text-main-dark">Hola.</h1>
+            <h1 id="loader-title-2" class="loader-title text-text-main dark:text-text-main-dark">Soy José Ricardo García Quispe</h1>
+            <div id="progress-bar-container"><div id="progress-bar"></div></div>
+        </div>
     </div>
 
-    <div class="button">
-        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
-        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+    <div id="main-content">
+        <header class="main-nav fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl mx-auto flex justify-center"></header>
+        <div class="scroll-container">
+            <section id="inicio" class="scroll-section"></section>
+            <section id="acerca" class="scroll-section"></section>
+            <section id="trayectoria" class="scroll-section"></section>
+            <section id="certificados" class="scroll-section"></section>
+            <section id="habilidades" class="scroll-section"></section>
+            <footer id="footer" class="scroll-section bg-gray-100 dark:bg-background-dark"></footer>
+        </div>
     </div>
 
-</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loader');
+            const mainContent = document.getElementById('main-content');
+            
+            // --- Loader Animation ---
+            setTimeout(() => document.getElementById('loader-title-1').classList.add('visible'), 500);
+            setTimeout(() => document.getElementById('loader-title-2').classList.add('visible'), 1500);
+            setTimeout(() => document.getElementById('progress-bar').style.width = '100%', 2500);
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                loader.addEventListener('transitionend', () => {
+                    loader.style.display = 'none';
+                    mainContent.classList.add('visible');
+                    document.body.style.overflow = 'auto'; // Restore scrolling
+                    initializeMainContentScripts();
+                }, { once: true });
+            }, 4000);
+
+            function initializeMainContentScripts() {
+                feather.replace(); // Initialize Feather Icons
+                
+                // --- Intersection Observer for Active Nav Link ---
+                const sections = document.querySelectorAll('.scroll-section');
+                const navLinks = document.querySelectorAll('.nav-link');
+                const navObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.id;
+                            navLinks.forEach(link => {
+                                link.classList.toggle('active', link.getAttribute('href') === `#${sectionId}`);
+                            });
+                        }
+                    });
+                }, { root: document.querySelector('.scroll-container'), threshold: 0.7 });
+                sections.forEach(section => { if (section.id) navObserver.observe(section); });
+
+                // --- Intersection Observer for Animations ---
+                const animationObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                document.querySelectorAll('.animate-on-scroll').forEach(el => animationObserver.observe(el));
+                
+                // Set first link as active by default
+                if (sections.length > 0) {
+                    const firstLink = document.querySelector(`.nav-link[href="#${sections[0].id}"]`);
+                    if(firstLink) firstLink.classList.add('active');
+                }
+            }
+
+            // --- DYNAMIC CONTENT POPULATION ---
+            
+            // 1. Navigation Menu
+            document.querySelector('.main-nav').innerHTML = `<nav class="bg-surface-light/70 dark:bg-surface-dark/60 backdrop-blur-md shadow-lg rounded-full border border-border-light dark:border-border-dark"><ul class="flex items-center p-2 space-x-1">
+                <li><a href="#inicio" class="nav-link flex items-center gap-2 font-medium py-2 px-4 rounded-full text-sm transition-colors"><span class="material-symbols-outlined !text-base">home</span>Inicio</a></li>
+                <li><a href="#acerca" class="nav-link flex items-center gap-2 font-medium py-2 px-4 rounded-full text-sm transition-colors"><span class="material-symbols-outlined !text-base">person</span>Acerca de Mí</a></li>
+                <li><a href="#trayectoria" class="nav-link flex items-center gap-2 font-medium py-2 px-4 rounded-full text-sm transition-colors"><span class="material-symbols-outlined !text-base">timeline</span>Trayectoria</a></li>
+                <li><a href="#certificados" class="nav-link flex items-center gap-2 font-medium py-2 px-4 rounded-full text-sm transition-colors"><span class="material-symbols-outlined !text-base">school</span>Certificados</a></li>
+                <li><a href="#habilidades" class="nav-link flex items-center gap-2 font-medium py-2 px-4 rounded-full text-sm transition-colors"><span class="material-symbols-outlined !text-base">code</span>Habilidades</a></li>
+            </ul></nav>`;
+
+            // 2. "Inicio" Section (Hero)
+            document.getElementById('inicio').innerHTML = `<div class="text-center">
+                <h1 class="animate-on-scroll fade-in-down text-5xl md:text-7xl font-bold text-text-main dark:text-text-main-dark">José Ricardo García Quispe</h1>
+                <p class="animate-on-scroll fade-in-up delay-200 mt-4 text-xl text-text-secondary dark:text-text-secondary-dark">Ingeniero de Sistemas | Egresado de la Universidad de Lima</p>
+                <div class="mt-8 animate-on-scroll fade-in-up delay-400">
+                    <a href="#acerca" class="bg-primary text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition-transform transform hover:scale-105">Conoce más sobre mí</a>
+                </div>
+            </div>`;
+
+            // 3. "Acerca de Mí" Section
+            document.getElementById('acerca').innerHTML = `<div class="w-full max-w-5xl mx-auto text-center">
+                <div class="animate-on-scroll fade-in-down">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Acerca de Mí</h2>
+                    <p class="text-lg text-text-secondary dark:text-text-secondary-dark max-w-3xl mx-auto">
+                        Apasionado por la innovación tecnológica. He logrado optimizar procesos y crear sistemas robustos. Mi experiencia como desarrollador Full Stack incluye web scraping con Python, conocimientos en Google Cloud y SEO. Estoy listo para liderar proyectos digitales de alto impacto.
+                    </p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <div class="animate-on-scroll fade-in-up delay-100 bg-surface-light dark:bg-surface-dark p-6 rounded-lg border border-border-light dark:border-border-dark">
+                        <div class="flex items-center gap-4"><i data-feather="target" class="text-primary"></i><h3 class="font-bold text-lg">Analítico</h3></div>
+                        <p class="mt-2 text-sm text-text-secondary dark:text-text-secondary-dark">Capacidad para identificar problemas y proponer soluciones eficientes basadas en datos.</p>
+                    </div>
+                    <div class="animate-on-scroll fade-in-up delay-200 bg-surface-light dark:bg-surface-dark p-6 rounded-lg border border-border-light dark:border-border-dark">
+                        <div class="flex items-center gap-4"><i data-feather="tool" class="text-primary"></i><h3 class="font-bold text-lg">Solucionador de Problemas</h3></div>
+                        <p class="mt-2 text-sm text-text-secondary dark:text-text-secondary-dark">Enfoque proactivo para resolver desafíos complejos y mejorar la eficiencia operativa.</p>
+                    </div>
+                    <div class="animate-on-scroll fade-in-up delay-300 bg-surface-light dark:bg-surface-dark p-6 rounded-lg border border-border-light dark:border-border-dark">
+                        <div class="flex items-center gap-4"><i data-feather="refresh-cw" class="text-primary"></i><h3 class="font-bold text-lg">Adaptabilidad</h3></div>
+                        <p class="mt-2 text-sm text-text-secondary dark:text-text-secondary-dark">Facilidad para aprender nuevas tecnologías y adaptarme a entornos de trabajo dinámicos.</p>
+                    </div>
+                </div>
+                 <div class="mt-12 animate-on-scroll fade-in-up delay-400">
+                    <h3 class="text-2xl font-bold mb-4">Contacto</h3>
+                     <div class="flex justify-center space-x-6">
+                        <a href="mailto:josericky97@gmail.com" class="flex items-center gap-2 text-text-secondary dark:text-text-secondary-dark hover:text-primary"><i data-feather="mail"></i>josericky97@gmail.com</a>
+                        <a href="tel:+51999900396" class="flex items-center gap-2 text-text-secondary dark:text-text-secondary-dark hover:text-primary"><i data-feather="phone"></i>+51 999 900 396</a>
+                    </div>
+                </div>
+            </div>`;
+
+            // 4. "Trayectoria" Section (Timeline)
+            document.getElementById('trayectoria').innerHTML = `<div class="w-full max-w-5xl mx-auto py-12">
+                <div class="text-center mb-16 animate-on-scroll fade-in-down">
+                    <h2 class="text-4xl md:text-5xl font-bold">Trayectoria Profesional y Académica</h2>
+                    <p class="text-lg text-text-secondary dark:text-text-secondary-dark mt-2">Mi camino a través de la experiencia y el aprendizaje.</p>
+                </div>
+                <div class="timeline-container">
+                    <!-- Educación -->
+                    <div class="timeline-item animate-on-scroll fade-in-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="text-sm text-text-secondary dark:text-text-secondary-dark">2019 - Presente</span>
+                            <h3 class="text-xl font-bold mt-1">Egresado de Ingeniería de Sistemas</h3>
+                            <h4 class="font-semibold text-primary">Universidad de Lima</h4>
+                            <p class="mt-2 text-sm text-text-secondary dark:text-text-secondary-dark">Capacitado en diseño, desarrollo e implementación de tecnologías de la información, preparado para enfrentar desafíos tecnológicos en diversos sectores.</p>
+                        </div>
+                    </div>
+                    <!-- Experiencia 1 -->
+                    <div class="timeline-item animate-on-scroll fade-in-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="text-sm text-text-secondary dark:text-text-secondary-dark">ago. 2023 - nov. 2023</span>
+                            <h3 class="text-xl font-bold mt-1">Practicante Pre Profesional</h3>
+                            <h4 class="font-semibold text-primary">Unidad de Gestión Educativa N° 03</h4>
+                            <p class="mt-2 text-sm text-text-secondary dark:text-text-secondary-dark">Desarrollo de aplicaciones web, web scraping con Python y elaboración de manuales BPMN para optimizar la gestión educativa.</p>
+                        </div>
+                    </div>
+                    <!-- Experiencia 2 -->
+                    <div class="timeline-item animate-on-scroll fade-in-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="text-sm text-text-secondary dark:text-text-secondary-dark">ene. 2018 - jul. 2023</span>
+                            <h3 class="text-xl font-bold mt-1">Administrador</h3>
+                            <h4 class="font-semibold text-primary">Negocio Independiente</h4>
+                            <p class="mt-2 text-sm text-text-secondary dark:text-text-secondary-dark">Gestión integral de operaciones, finanzas, implementación de tecnología y estrategias de marketing para asegurar la eficiencia y sostenibilidad.</p>
+                        </div>
+                    </div>
+                    <!-- Experiencia 3 -->
+                    <div class="timeline-item animate-on-scroll fade-in-up">
+                         <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="text-sm text-text-secondary dark:text-text-secondary-dark">mar. 2021 - dic. 2021</span>
+                            <h3 class="text-xl font-bold mt-1">Analista de Sistemas</h3>
+                            <h4 class="font-semibold text-primary">Import Export JG SAC</h4>
+                            <p class="mt-2 text-sm text-text-secondary dark:text-text-secondary-dark">Supervisión de procesos, análisis empresarial, y diseño de soluciones tecnológicas, liderando proyectos de mantenimiento y seguridad de TI.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+
+            // 5. "Certificados" Section
+            document.getElementById('certificados').innerHTML = `<div class="w-full max-w-6xl mx-auto"><div class="animate-on-scroll fade-in-down text-center mb-12"><h2 class="text-4xl md:text-5xl font-bold mb-4">Diplomas y Certificados</h2><p class="text-lg text-text-secondary dark:text-text-secondary-dark">Mi formación académica y especializada.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="animate-on-scroll fade-in-left bg-surface-light dark:bg-surface-dark rounded-xl shadow-lg border border-border-light dark:border-border-dark overflow-hidden flex flex-col transition-transform hover:scale-105 duration-300"><img alt="Campus de la Universidad de Lima" class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1562774053-62575e921b33?q=80&w=2070&auto=format&fit=crop"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-semibold mb-2">Ingeniería de Sistemas</h3><p class="text-text-secondary dark:text-text-secondary-dark text-sm mb-4 flex-grow">Egresado de la Universidad de Lima, con una sólida formación en tecnologías de la información.</p><a class="mt-auto text-sm font-medium text-primary hover:underline group flex items-center justify-between" href="#"><span>Ver Información</span><span class="material-symbols-outlined transform transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span></a></div></div><div class="animate-on-scroll fade-in-left delay-200 bg-surface-light dark:bg-surface-dark rounded-xl shadow-lg border border-border-light dark:border-border-dark overflow-hidden flex flex-col transition-transform hover:scale-105 duration-300"><img alt="Cámaras de seguridad y tecnología" class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1585028444430-fE324b974544?q=80&w=1966&auto=format&fit=crop"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-semibold mb-2">Especialista en Seguridad Electrónica</h3><p class="text-text-secondary dark:text-text-secondary-dark text-sm mb-4 flex-grow">Certificado por INICTEL-UNI, con conocimientos en sistemas de seguridad, análisis de riesgos y tecnologías de protección.</p><a class="mt-auto text-sm font-medium text-primary hover:underline group flex items-center justify-between" href="#"><span>Ver Información</span><span class="material-symbols-outlined transform transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span></a></div></div><div class="animate-on-scroll fade-in-left delay-400 bg-surface-light dark:bg-surface-dark rounded-xl shadow-lg border border-border-light dark:border-border-dark overflow-hidden flex flex-col transition-transform hover:scale-105 duration-300"><img alt="Código de Python en una pantalla" class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1555066931-4365d1469c8b?q=80&w=2070&auto=format&fit=crop"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-semibold mb-2">PCAP: Programming Essentials in Python</h3><p class="text-text-secondary dark:text-text-secondary-dark text-sm mb-4 flex-grow">Certificación en programación Python, aplicable a desarrollo de software, análisis de datos y automatización.</p><a class="mt-auto text-sm font-medium text-primary hover:underline group flex items-center justify-between" href="#"><span>Ver Información</span><span class="material-symbols-outlined transform transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span></a></div></div></div></div>`;
+            
+            // 6. "Habilidades" Section
+            document.getElementById('habilidades').innerHTML = `<div class="w-full max-w-6xl mx-auto text-center"><div class="animate-on-scroll fade-in-down"><h2 class="text-4xl md:text-5xl font-bold mb-4">Habilidades de TI</h2><p class="text-lg text-text-secondary dark:text-text-secondary-dark mb-12">Mi conjunto de herramientas técnicas.</p></div><div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-left">
+                ${['Machine Learning', 'Análisis Empresarial', 'Aplicaciones Móviles', 'Automatización', 'Lenguajes de Programación', 'Inteligencia Artificial', 'Ciberseguridad', 'Cloud Computing'].map((skill, index) => `<div class="animate-on-scroll fade-in-up delay-${index * 100} bg-surface-light dark:bg-surface-dark rounded-xl shadow-lg p-6 flex flex-col items-center transform transition-transform hover:-translate-y-2 duration-300 border border-border-light dark:border-border-dark"><span class="material-symbols-outlined text-primary text-4xl mb-4">${{
+                    'Machine Learning': 'smart_toy',
+                    'Análisis Empresarial': 'insights',
+                    'Aplicaciones Móviles': 'phone_android',
+                    'Automatización': 'precision_manufacturing',
+                    'Lenguajes de Programación': 'code',
+                    'Inteligencia Artificial': 'psychology',
+                    'Ciberseguridad': 'security',
+                    'Cloud Computing': 'cloud'
+                }[skill]}</span><h3 class="text-lg font-semibold text-center">${skill}</h3></div>`).join('')}
+            </div></div>`;
+
+            // 7. Footer
+            document.querySelector('#footer').innerHTML = `<div class="container mx-auto px-6 py-12 text-text-secondary dark:text-text-secondary-dark"><div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left"><div class="space-y-4 flex flex-col items-center md:items-start"><h2 class="text-2xl font-bold text-text-main dark:text-text-main-dark">José R. García Q.</h2><p class="text-sm max-w-xs">Ingeniero de Sistemas enfocado en la creación de soluciones innovadoras y eficientes.</p></div><div class="space-y-4"><h3 class="text-sm font-semibold tracking-wider uppercase">Enlaces</h3><ul class="space-y-2"><li><a class="hover:text-primary transition-colors" href="#inicio">Inicio</a></li><li><a class="hover:text-primary transition-colors" href="#acerca">Acerca de Mí</a></li><li><a class="hover:text-primary transition-colors" href="#trayectoria">Trayectoria</a></li><li><a class="hover:text-primary transition-colors" href="#certificados">Certificados</a></li><li><a class="hover:text-primary transition-colors" href="#habilidades">Habilidades</a></li></ul></div><div class="space-y-4"><h3 class="text-sm font-semibold tracking-wider uppercase">Sígueme</h3><div class="flex space-x-4 justify-center md:justify-start"><a aria-label="LinkedIn" class="hover:text-primary transition-colors" href="#"><i data-feather="linkedin"></i></a><a aria-label="GitHub" class="hover:text-primary transition-colors" href="#"><i data-feather="github"></i></a></div></div></div><div class="mt-12 pt-8 border-t border-border-light dark:border-border-dark text-center text-xs"><p>&copy; ${new Date().getFullYear()} José Ricardo García Quispe. Todos los derechos reservados.</p></div></div>`;
+            
+             // Re-run feather icons after populating content
+            feather.replace();
+        });
+    </script>
+</body>
+</html>

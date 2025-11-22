@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Jose Ricardo Garcia Quispe</title>
+    <!-- Se agrega la librería de iconos Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .container {
+            width: 900px;
+            margin: 30px auto;
+            background-color: #fff;
+            display: flex;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .sidebar {
+            width: 320px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 30px 25px;
+        }
+        .sidebar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 25px;
+            border: 5px solid #34495e;
+        }
+        .sidebar h2 {
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 1.1em;
+            color: #fff;
+            border-bottom: 1px solid #4a627a;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .sidebar ul { list-style: none; padding: 0; }
+        .sidebar li { margin-bottom: 12px; }
+        .sidebar .personal-details li, .sidebar .icon-list li {
+            display: flex;
+            align-items: flex-start;
+        }
+        .sidebar .personal-details i, .sidebar .icon-list i {
+            width: 20px;
+            margin-right: 12px;
+            margin-top: 4px;
+            text-align: center;
+            color: #bdc3c7;
+        }
+        .sidebar .personal-details span { font-weight: bold; display: block; margin-bottom: 2px; font-size: 0.9em; color: #bdc3c7; }
+        
+        .main-content {
+            padding: 30px 40px;
+            width: calc(100% - 320px);
+        }
+        h1 { color: #2c3e50; margin-top: 0; margin-bottom: 10px; font-size: 2.5em; font-weight: 700; }
+        .main-content > p { margin-bottom: 20px; }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 1.2em;
+            margin-top: 30px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+        h2 i { margin-right: 12px; font-size: 1.2em; }
+        
+        /* --- Estilos para la línea de tiempo --- */
+        .timeline {
+            position: relative;
+            padding-left: 150px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 130px;
+            top: 10px;
+            bottom: 0;
+            width: 2px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background-color: #fff;
+            border: 2px solid #2c3e50;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-date {
+            position: absolute;
+            left: -150px;
+            top: 0;
+            width: 130px;
+            padding-right: 20px;
+            text-align: right;
+            color: #7f8c8d;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+        
+        .timeline-content h3 { margin: 0 0 5px 0; color: #34495e; font-size: 1.1em; }
+        .timeline-content > span { color: #333; font-size: 0.95em; display: block; margin-bottom: 10px; font-style: normal; }
+        .timeline-content ul { padding-left: 20px; margin: 0;}
+        .timeline-content ul li { margin-bottom: 10px; }
+        .timeline-content ul li span { font-weight: bold; color: #34495e; }
+        .timeline-content p { font-size: 0.95em; margin-top: 5px; }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <img src="https://i.imgur.com/G5dlhEk.png" alt="Foto de Jose Ricardo Garcia Quispe">
+            
+            <section>
+                <h2><i class="fas fa-user-circle"></i> DETALLES PERSONALES</h2>
+                <ul class="personal-details">
+                    <li><i class="fas fa-user"></i><div><span>Nombre</span>JOSE RICARDO GARCIA QUISPE</div></li>
+                    <li><i class="fas fa-map-marker-alt"></i><div><span>Dirección</span>MAGDALENA DEL MAR, Lima</div></li>
+                    <li><i class="fas fa-phone"></i><div><span>Número de teléfono</span>999900396</div></li>
+                    <li><i class="fas fa-envelope"></i><div><span>Correo electrónico</span>josericky97@gmail.com</div></li>
+                    <li><i class="fas fa-calendar-alt"></i><div><span>Fecha de nacimiento</span>25/9/1995</div></li>
+                    <li><i class="fas fa-venus-mars"></i><div><span>Género</span>Hombre</div></li>
+                    <li><i class="fas fa-flag"></i><div><span>Nacionalidad</span>Peruana</div></li>
+                    <li><i class="fas fa-heart"></i><div><span>Estado civil</span>Soltero(a)</div></li>
+                </ul>
+            </section>
+             <section>
+                <h2><i class="fas fa-language"></i> IDIOMAS</h2>
+                <ul><li>Inglés ★★★★☆</li><li>Portugués</li></ul>
+            </section>
+            <section>
+                <h2><i class="fas fa-star"></i> CARACTERÍSTICAS</h2>
+                <ul><li>■ Analítico</li><li>■ Solucionador de problemas</li><li>■ Facilidad de adaptacion</li></ul>
+            </section>
+            <section>
+                <h2><i class="fas fa-cogs"></i> HABILIDADES DE TI</h2>
+                <ul class="icon-list">
+                    <li><i class="fas fa-robot"></i>Habilidades de Machine Learning</li>
+                    <li><i class="fas fa-chart-pie"></i>Habilidades de Análisis Empresarial</li>
+                    <li><i class="fas fa-mobile-alt"></i>Habilidades de Aplicaciones Móviles</li>
+                    <li><i class="fas fa-cogs"></i>Habilidades de Automatizacion</li>
+                    <li><i class="fas fa-code"></i>Habilidades de Lenguajes de Programacion</li>
+                    <li><i class="fas fa-brain"></i>Habilidades de Inteligencia Artificial</li>
+                    <li><i class="fas fa-shield-alt"></i>Habilidades de Ciberseguridad</li>
+                    <li><i class="fas fa-cloud"></i>Habilidades de Cloud Computing</li>
+                </ul>
+            </section>
+            <section>
+                <h2><i class="fas fa-check-circle"></i> HABILIDADES</h2>
+                <ul class="icon-list">
+                    <li><i class="fas fa-desktop"></i>Manejo de Recursos Digitales</li>
+                    <li><i class="fas fa-chart-bar"></i>Manejo y Análisis de datos</li>
+                    <li><i class="fas fa-bullseye"></i>Orientacion a los Resultados</li>
+                    <li><i class="fas fa-users"></i>Trabajo en Equipo</li>
+                    <li><i class="fas fa-search"></i>Autocrítica</li>
+                    <li><i class="fas fa-sync-alt"></i>Adaptación</li>
+                    <li><i class="fas fa-lightbulb"></i>Pensamiento Crítico</li>
+                    <li><i class="fas fa-comments"></i>Comunicación</li>
+                    <li><i class="fas fa-headphones"></i>Escucha Activa</li>
+                </ul>
+            </section>
+             <section>
+                <h2><i class="fas fa-gamepad"></i> PASATIEMPOS</h2>
+                <ul class="icon-list">
+                    <li><i class="fas fa-tv"></i>Ver series, películas, documentales</li>
+                    <li><i class="fas fa-seedling"></i>Jardinería</li>
+                    <li><i class="fas fa-plane-departure"></i>Viajar</li>
+                    <li><i class="fas fa-music"></i>Escuchar música</li>
+                    <li><i class="fas fa-utensils"></i>Cocinar</li>
+                    <li><i class="fas fa-language"></i>Aprender un nuevo idioma</li>
+                    <li><i class="fas fa-gem"></i>Coleccionar</li>
+                    <li><i class="fas fa-book-open"></i>Leer un buen libro</li>
+                    <li><i class="fas fa-futbol"></i>Practicar Deportes</li>
+                </ul>
+            </section>
+        </aside>
+
+        <main class="main-content">
+            <h1>JOSE RICARDO GARCIA QUISPE</h1>
+            <p>Soy un apasionado por la innovación tecnológica y he logrado optimizar procesos y crear sistemas robustos. Mi experiencia como desarrollador Full Stack incluye web scraping con Python, conocimientos en Google Cloud Platform y SEO de marketing. Estoy listo para liderar proyectos digitales de alto impacto.</p>
+            
+            <section>
+                <h2><i class="fas fa-briefcase"></i> EXPERIENCIA LABORAL</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">ago. 2023 - nov. 2023</div>
+                        <div class="timeline-content">
+                            <h3>PRACTICANTE Pre Profesional</h3>
+                            <span><strong>UNIDAD DE GESTION EDUCATIVA N 03, LIMA</strong></span>
+                            <ul>
+                                <li><span>Rol:</span> Desarrollé aplicaciones web y utilicé técnicas de web scraping con Python para mejorar la gestión educativa. Además, contribuí en la elaboración de manuales BPMN y la guía para la nueva página web de la UGEL 03.</li>
+                                <li><span>Valor:</span> Implementé soluciones tecnológicas que optimizaron procesos y recopilaron datos relevantes, además de colaborar en la estandarización de procesos administrativos y educativos.</li>
+                                <li><span>Aprendizaje:</span> Adquirí habilidades en desarrollo web, web scraping con Python, análisis de datos y elaboración de BPMN, fortaleciendo mi contribución a la gestión educativa mediante la tecnología y mejora continua de procesos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">ene. 2018 - jul. 2023</div>
+                        <div class="timeline-content">
+                            <h3>ADMINISTRADOR</h3>
+                            <span><strong>NEGOCIO INDEPENDIENTE, LIMA</strong></span>
+                            <ul>
+                                <li><span>Rol:</span> Implementé todas las operaciones, desde la gestión financiera hasta la implementación de sistemas tecnológicos, mientras ofrecía atención al cliente y desarrollaba estrategias de marketing.</li>
+                                <li><span>Valor:</span> Contribuí a la eficiencia operativa y sostenibilidad mediante la gestión integral de operaciones y el enfoque en la experiencia del cliente.</li>
+                                <li><span>Aprendizaje:</span> Desarrollé habilidades en gestión financiera, cumplimiento normativo, atención al cliente, y estrategias de marketing, fortaleciendo mi capacidad para liderar operaciones complejas de manera efectiva.</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="timeline-item">
+                        <div class="timeline-date">mar. 2021 - dic. 2021</div>
+                        <div class="timeline-content">
+                            <h3>ANALISTA DE SISTEMAS</h3>
+                            <span><strong>IMPORT EXPORT JG SAC, LIMA</strong></span>
+                            <ul>
+                                <li><span>Rol:</span> Supervisé procesos en diversas áreas, desarrollando habilidades en análisis empresarial y diseño de soluciones tecnológicas.</li>
+                                <li><span>Valor:</span> Aporté eficiencia operativa mediante la implementación exitosa de soluciones de software y hardware, liderando proyectos de mantenimiento y seguridad.</li>
+                                <li><span>Aprendizaje:</span> Adquirí destrezas en gestión de proyectos, pruebas de sistemas y depuración, fortaleciendo mi capacidad para impulsar la innovación en entornos empresariales.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">mar. 2015 - mar. 2016</div>
+                        <div class="timeline-content">
+                            <h3>ANALISTA DE PROCESOS Y MEJORA CONTINUA</h3>
+                            <span><strong>IMPORT EXPORT JG SAC, LIMA</strong></span>
+                            <ul>
+                                <li><span>Rol:</span> Durante mi experiencia en la empresa, identifiqué procesos generadores de cuellos de botella y desarrollé medidas preventivas para minimizar la pérdida de materias primas. Logré reducir la adquisición de insumos en un 40% y optimicé el tiempo de fabricación.</li>
+                                <li><span>Valor:</span> Contribuí significativamente a la eficiencia operativa al implementar medidas preventivas que redujeron los cuellos de botella y maximizaron la utilización de recursos.</li>
+                                <li><span>Aprendizaje:</span> Adquirí habilidades en gestión de procesos, optimización de recursos y mejora continua, fortaleciendo mi capacidad para impulsar la eficiencia y reducir costos en entornos empresariales.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2><i class="fas fa-graduation-cap"></i> EDUCACIÓN</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                         <div class="timeline-date">2019 - Presente</div>
+                         <div class="timeline-content">
+                            <h3>ESTUDIANTE DE INGENIERÍA DE SISTEMAS</h3>
+                            <span><strong>UNIVERSIDAD DE LIMA, Lima</strong></span>
+                            <p>Estudiante del DECIMO ciclo de la carrera de ing. de sistemas altamente capacitado en el diseño, desarrollo, implementación y gestión de sistemas y tecnologías de la información, preparado para enfrentar los desafíos tecnológicos en diversos sectores, como el empresarial, gubernamental y académico. además, estoy capacitado para seguir aprendiendo y adaptándome en un campo en constante evolución.</p>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2><i class="fas fa-certificate"></i> CERTIFICADOS</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3>INICTEL-UNI ESPECIALISTA EN SEGURIDAD ELECTRONICA</h3>
+                            <p>CON SÓLIDOS CONOCIMIENTOS EN DIVERSOS SISTEMAS DE SEGURIDAD ELECTRÓNICOS, ESTOY FAMILIARIZADO CON HERRAMIENTAS DE ÚLTIMA TECNOLOGÍA QUE CONTRIBUYEN A PROTEGER, SUPERVISAR Y ADMINISTRAR ÁREAS DE SEGURIDAD. MI FORMACIÓN INCLUYE UN ENTENDIMIENTO DEL ANÁLISIS DE RIESGOS, LA IMPLEMENTACIÓN DE TECNOLOGÍAS AVANZADAS Y EL USO HÁBIL DE HERRAMIENTAS DE SOFTWARE PARA DISEÑAR SOLUCIONES INTEGRALES Y EFECTIVAS DE SEGURIDAD.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                         <div class="timeline-date">2022</div>
+                         <div class="timeline-content">
+                            <h3>PCAP: Programming Essentials in Python</h3>
+                            <p>CERTIFICACIÓN EN PROGRAMACIÓN ESENCIAL EN PYTHON, CON CONOCIMIENTOS EN ESTRUCTURAS DE CONTROL, MANIPULACIÓN DE DATOS Y DESARROLLO DE PROGRAMAS. HABILIDADES APLICABLES A DESARROLLO DE SOFTWARE, DESARROLLO WEB (DJANGO, FLASK, ETC), ANÁLISIS DE DATOS, AUTOMATIZACIÓN DE TAREAS, INTELIGENCIA ARTIFICIAL Y APRENDIZAJE AUTOMÁTICO, AUTOMATIZACIÓN DE PRUEBAS Y APLICACIONES CIENTÍFICAS E INGENIERÍA.</p>
+                         </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
