@@ -594,23 +594,40 @@
         const menuToggle = document.getElementById('menuToggle');
         const menuItems = document.getElementById('menuItems');
 
+        // Click (fallback for touch devices)
         menuToggle.addEventListener('click', () => {
-            menuItems.classList.toggle('active');
-            const icon = menuToggle.querySelector('.material-symbols-outlined');
-            if (menuItems.classList.contains('active')) {
-                icon.textContent = 'close';
-                menuToggle.style.transform = 'rotate(90deg)';
-            } else {
-                icon.textContent = 'palette';
-                menuToggle.style.transform = 'rotate(0deg)';
-            }
+            toggleMenu();
         });
 
-        // --- CountUp Animation Logic ---
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200; // The lower the slower
+        // Hover activation (desktop)
+        const menuContainer = document.querySelector('.circular-menu');
+        menuContainer.addEventListener('mouseenter', () => {
+            openMenu();
+        });
+        menuContainer.addEventListener('mouseleave', () => {
+            closeMenu();
+        });
 
-        const animateCounters = () => {
+        function openMenu() {
+            menuItems.classList.add('active');
+            const icon = menuToggle.querySelector('.material-symbols-outlined');
+            icon.textContent = 'close';
+            menuToggle.style.transform = 'rotate(90deg)';
+        }
+        function closeMenu() {
+            menuItems.classList.remove('active');
+            const icon = menuToggle.querySelector('.material-symbols-outlined');
+            icon.textContent = 'palette';
+            menuToggle.style.transform = 'rotate(0deg)';
+        }
+        function toggleMenu() {
+            if (menuItems.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+        if (menuItems.classList.contains('active')) {
             counters.forEach(counter => {
                 const updateCount = () => {
                     const target = +counter.getAttribute('data-target');
