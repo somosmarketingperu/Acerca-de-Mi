@@ -84,3 +84,27 @@ El proyecto base está **completado**. La estructura HTML, los estilos y la lóg
 1.  **Optimización de Assets:** Reemplazar imágenes de placeholder (Unsplash) con imágenes reales de certificados y proyectos propios.
 2.  **Formulario de Contacto:** Implementar un formulario funcional en lugar de solo enlaces `mailto`.
 3.  **SEO:** Mejorar metaetiquetas y descripciones para motores de búsqueda.
+
+## 4. Plan de Implementación Actual: Mejora de Navegación (Sprint Actual)
+
+**Objetivo:** Implementar un menú de navegación interactivo "State-driven" (activado por clic) con animación "Fade In Up" consistente en todas las páginas, alternando entre diseños Circular y Vertical.
+
+**Tareas:**
+- [ ] **Definir Estilos Base:** Crear clases CSS para la animación `fade-in-up` y el estado `.active`.
+- [ ] **Implementar Lógica JS:** Script para manejar el evento `click` (toggle) y cerrar el menú al hacer clic fuera (`click outside`).
+- [ ] **Actualizar `index.html`:**
+    - Diseño: **Circular**.
+    - Color: Azul (`bg-blue-500`).
+- [ ] **Actualizar `cv_berry.html`:**
+    - Diseño: **Vertical**.
+    - Color: Fucsia (`bg-primary` / `bg-fuchsia-600`).
+- [ ] **Actualizar `cv_ocean.html`:**
+    - Diseño: **Circular**.
+    - Color: Cian (`bg-cyan-500`).
+- [ ] **Actualizar `cv_sunset.html`:**
+    - Diseño: **Vertical**.
+    - Color: Naranja (`bg-orange-500`).
+- [ ] **Actualizar `cv.html`:**
+    - Diseño: **Circular**.
+    - Color: Esmeralda (`bg-emerald-500`).
+
