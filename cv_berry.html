@@ -1,256 +1,605 @@
 <!DOCTYPE html>
-<html class="dark" lang="es">
+<html lang="es" class="scroll-smooth">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>José Ricardo García Quispe - Berry Portfolio</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap"
-        rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Ricardo García Quispe - Cosmic Portfolio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
-    <script id="tailwind-config">
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Symbols -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <script>
         tailwind.config = {
-            darkMode: "class",
+            darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        "primary": "#c026d3", // Fuchsia 600 for Berry theme
-                        "background-light": "#fdf4ff", // Fuchsia 50
-                        "background-dark": "#101022",
-                    },
                     fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"]
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
                     },
-                    borderRadius: {
-                        "DEFAULT": "0.5rem",
-                        "lg": "1rem",
-                        "xl": "1.5rem",
-                        "full": "9999px"
+                    colors: {
+                        bg: {
+                            dark: '#030014', // Deep space blue/black
+                            card: 'rgba(255, 255, 255, 0.05)',
+                        },
+                        primary: {
+                            DEFAULT: '#c026d3', // Fuchsia 600
+                            glow: '#d946ef',
+                        },
+                        secondary: {
+                            DEFAULT: '#0891b2', // Cyan 600
+                            glow: '#22d3ee',
+                        }
                     },
-                },
-            },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'cosmic-gradient': 'linear-gradient(to right, #c026d3, #0891b2)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: '1', boxShadow: '0 0 20px rgba(192, 38, 211, 0.5)' },
+                            '50%': { opacity: '0.8', boxShadow: '0 0 40px rgba(192, 38, 211, 0.8)' },
+                        }
+                    }
+                }
+            }
         }
     </script>
+
     <style>
-        .material-symbols-outlined {
-            font-variation-settings:
-                'FILL' 0,
-                'wght' 400,
-                'GRAD' 0,
-                'opsz' 24
+        body {
+            background-color: #030014;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Background Stars Effect */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0, 0, 0, 0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+                radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+                radial-gradient(2px 2px at 130px 80px, #fff, rgba(0, 0, 0, 0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            opacity: 0.3;
+            z-index: -1;
+            animation: moveStars 100s linear infinite;
+        }
+
+        @keyframes moveStars {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 0 1000px;
+            }
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(192, 38, 211, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(192, 38, 211, 0.2);
+        }
+
+        .glass-nav {
+            background: rgba(3, 0, 20, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Scroll Reveal Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Circular Menu Styles */
+        .circular-menu {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+        }
+
+        .menu-toggle {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c026d3, #701a75);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(192, 38, 211, 0.4);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .menu-items {
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .menu-items.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .menu-item {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .menu-item:hover {
+            background: #c026d3;
+            transform: translateX(-5px);
+        }
+
+        .menu-item::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 120%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-item:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030014;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c026d3;
         }
     </style>
 </head>
 
-<body class="font-display bg-background-light dark:bg-background-dark text-[#A0A0A0]">
-    <div class="relative min-h-screen w-full overflow-x-hidden">
-        <div class="fixed inset-0 z-[-1]">
-            <div class="absolute inset-0 bg-background-dark/90"></div>
-            <img class="h-full w-full object-cover opacity-20"
-                data-alt="Abstract dark blue and purple plexus background"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAKdjVfNxqEV5dHKFwlkOCe8Xi_dWjqaqIFy9lly_nL8j1gkJgAQQkET9XVbZH4kZe4Ap13_V7LfFD1Y404PC4w05Bq9FZH_cFO1NC1KI51Hu8m7N2-tYbRjcxKeJTBA340VLgmsuZf3ms_NaSrltIUvTO02Is_H2KLzIv8DBVfyIuwvYuqZeTcZbHE10vzR2k_MovKPU-vp1GNWC3YsMFYuNB9aIdqqFRZ2NCu4rcRUICgQrHcdKA3fTIsFxaLcAgg_UFdPx7GfCt" />
+<body class="antialiased selection:bg-fuchsia-500 selection:text-white">
+
+    <!-- Background Stars -->
+    <div class="stars"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 z-40 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#"
+                class="text-2xl font-display font-bold tracking-tighter hover:text-fuchsia-400 transition-colors">
+                JR<span class="text-fuchsia-500">.</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-fuchsia-400 transition-colors">Inicio</a>
+                <a href="#about" class="hover:text-fuchsia-400 transition-colors">Sobre Mí</a>
+                <a href="#experience" class="hover:text-fuchsia-400 transition-colors">Experiencia</a>
+                <a href="#contact" class="hover:text-fuchsia-400 transition-colors">Contacto</a>
+            </div>
+            <a href="#contact"
+                class="px-5 py-2 rounded-full bg-gradient-to-r from-fuchsia-600 to-cyan-600 text-white font-medium text-sm hover:shadow-[0_0_20px_rgba(192,38,211,0.5)] transition-all duration-300 transform hover:scale-105">
+                Contáctame
+            </a>
         </div>
-        <div class="relative z-10">
-            <header class="sticky top-4 z-50 mx-auto max-w-4xl">
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <!-- Background Glows -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-fuchsia-600/20 rounded-full blur-[128px] -z-10"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-600/20 rounded-full blur-[128px] -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+            <div class="space-y-6 reveal active">
                 <div
-                    class="flex items-center justify-between whitespace-nowrap rounded-xl border border-white/10 bg-white/5 px-6 py-3 shadow-lg backdrop-blur-lg">
-                    <div class="flex items-center gap-4 text-white">
-                        <div class="size-6 text-primary">
-                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
-                                    fill="currentColor"></path>
-                            </svg>
-                        </div>
-                        <h2 class="hidden sm:block text-white text-lg font-bold leading-tight tracking-[-0.015em]">JRGQ
-                            Portfolio</h2>
+                    class="inline-block px-3 py-1 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-400 text-sm font-medium mb-4">
+                    🚀 Bienvenido a mi universo digital
+                </div>
+                <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight">
+                    Hola, soy <br>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-400">José
+                        Ricardo</span>
+                </h1>
+                <div class="text-xl md:text-2xl text-gray-400 font-light h-8">
+                    I am a <span id="typewriter" class="text-cyan-400 font-semibold"></span><span
+                        class="animate-pulse">|</span>
+                </div>
+                <p class="text-gray-400 max-w-lg leading-relaxed">
+                    Ingeniero de Sistemas y Desarrollador Full Stack apasionado por la innovación. Especialista en crear
+                    soluciones digitales robustas, desde web scraping hasta optimización de procesos.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#contact"
+                        class="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-gray-200 transition-all hover:scale-105 flex items-center gap-2">
+                        <span>Iniciar Misión</span>
+                        <span class="material-symbols-outlined text-sm">rocket_launch</span>
+                    </a>
+                    <a href="#experience"
+                        class="px-8 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all hover:scale-105 backdrop-blur-sm">
+                        Ver Trayectoria
+                    </a>
+                </div>
+
+                <!-- Stats Grid (Mini) -->
+                <div class="grid grid-cols-3 gap-6 pt-12 border-t border-white/10 mt-12">
+                    <div>
+                        <div class="text-3xl font-display font-bold text-white">8+</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Años Exp.</div>
                     </div>
-                    <div class="hidden md:flex items-center gap-9 text-sm font-medium leading-normal">
-                        <a class="text-white hover:text-primary transition-colors" href="index.html">Inicio</a>
-                        <a class="text-white hover:text-primary transition-colors" href="#about">Sobre Mí</a>
-                        <a class="text-white hover:text-primary transition-colors" href="#projects">Experiencia</a>
-                        <a class="text-white hover:text-primary transition-colors" href="#contact">Contacto</a>
+                    <div>
+                        <div class="text-3xl font-display font-bold text-white">20+</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Proyectos</div>
                     </div>
-                    <div class="flex flex-1 justify-end">
-                        <button
-                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/80 transition-colors">
-                            <span class="truncate">CV</span>
-                        </button>
+                    <div>
+                        <div class="text-3xl font-display font-bold text-white">100%</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Compromiso</div>
                     </div>
                 </div>
-            </header>
-            <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-                <section class="flex min-h-[60vh] flex-col items-center justify-center gap-6 text-center sm:gap-8">
-                    <div class="relative w-32 h-32 sm:w-40 sm:h-40 mb-4">
-                        <img src="images/profile.png" alt="José Ricardo García Quispe"
-                            class="rounded-full border-4 border-primary/50 shadow-2xl object-cover w-full h-full">
-                    </div>
-                    <h2 class="text-base font-normal leading-normal sm:text-lg text-slate-300">Hola, Soy José Ricardo
-                    </h2>
-                    <h1
-                        class="text-4xl font-black leading-tight tracking-[-0.033em] sm:text-5xl md:text-6xl text-white">
-                        Ingeniero de Sistemas <br /> & Full Stack Developer</h1>
-                    <p class="max-w-xl text-slate-400">Apasionado por la innovación tecnológica, optimización de
-                        procesos y creación de sistemas robustos. Especialista en Web Scraping, Cloud Computing y
-                        Machine Learning.</p>
-                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
-                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/80 transition-colors">
-                        <span class="truncate">CONTACTAR</span>
-                    </button>
-                </section>
+            </div>
 
-                <section id="about" class="py-16 sm:py-24">
-                    <h2
-                        class="text-white text-[28px] sm:text-4xl font-bold leading-tight tracking-[-0.015em] mb-8 text-center">
-                        Sobre Mí</h2>
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <div
-                            class="lg:col-span-2 rounded-xl bg-background-dark/50 border border-white/10 p-6 flex flex-col justify-end min-h-[300px] bg-cover bg-center relative overflow-hidden group">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent z-0">
-                            </div>
-                            <div class="relative z-10 flex flex-col gap-2">
-                                <p class="text-white text-2xl font-bold leading-tight">Perfil Profesional</p>
-                                <p class="text-slate-300 text-base font-medium leading-normal">
-                                    Estudiante del décimo ciclo de Ingeniería de Sistemas en la Universidad de Lima.
-                                    Capacitado en diseño, desarrollo e implementación de sistemas TI. Preparado para
-                                    desafíos en sectores empresariales y gubernamentales.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="rounded-xl bg-background-dark/50 border border-white/10 p-6 flex flex-col gap-4">
-                            <div class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary text-2xl">
-                                    terminal
-                                </span>
-                                <h3 class="text-white text-lg font-bold">Habilidades</h3>
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">Python</span>
-                                <span
-                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">Web
-                                    Scraping</span>
-                                <span
-                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">Google
-                                    Cloud</span>
-                                <span
-                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">Machine
-                                    Learning</span>
-                                <span
-                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">SEO</span>
-                                <span
-                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">BPMN</span>
-                            </div>
-                        </div>
-
-                        <div class="rounded-xl bg-background-dark/50 border border-white/10 p-6 flex flex-col justify-between"
-                            data-alt="A subtle wireframe globe graphic in the background">
-                            <div class="flex flex-col gap-1">
-                                <p class="text-[#9d9db9] text-sm font-normal leading-normal">Ubicación</p>
-                                <p class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Lima, Perú</p>
-                            </div>
-                            <div class="flex items-center gap-3 mt-4">
-                                <span class="material-symbols-outlined text-primary text-2xl">
-                                    public
-                                </span>
-                                <p class="text-[#9d9db9] text-base font-normal leading-normal">Disponible para proyectos
-                                    globales.</p>
-                            </div>
-                        </div>
-
-                        <div id="contact"
-                            class="rounded-xl border border-white/10 p-6 flex flex-col justify-between bg-fuchsia-900/30">
-                            <div class="flex flex-col gap-4">
-                                <h3 class="text-white text-xl font-bold leading-tight">¿Listo para innovar?</h3>
-                                <p class="text-slate-300 text-sm">Contáctame para colaborar en tu próximo proyecto
-                                    tecnológico.</p>
-                            </div>
-                            <a href="mailto:josericky97@gmail.com"
-                                class="mt-4 flex items-center justify-center gap-2 rounded-full h-10 px-4 bg-black/50 text-white text-sm font-medium hover:bg-black/70 transition-colors">
-                                <span class="material-symbols-outlined text-base">mail</span>
-                                <span>josericky97@gmail.com</span>
-                            </a>
-                        </div>
-
-                        <div class="lg:col-span-2 rounded-xl bg-background-dark/50 border border-white/10 p-6 flex flex-col justify-between relative overflow-hidden"
-                            id="projects">
-                            <div class="flex flex-col gap-4 z-10">
-                                <h3 class="text-white text-lg font-bold">Experiencia Destacada</h3>
-                                <div class="space-y-4">
-                                    <div class="border-l-2 border-primary pl-4">
-                                        <h4 class="text-white font-bold">UGEL N° 03 (2023)</h4>
-                                        <p class="text-slate-400 text-sm">Desarrollo de apps web y Web Scraping con
-                                            Python. Optimización de gestión educativa.</p>
-                                    </div>
-                                    <div class="border-l-2 border-primary pl-4">
-                                        <h4 class="text-white font-bold">Negocio Independiente (2018-2023)</h4>
-                                        <p class="text-slate-400 text-sm">Administrador. Gestión financiera e
-                                            implementación de sistemas tecnológicos.</p>
-                                    </div>
-                                    <div class="border-l-2 border-primary pl-4">
-                                        <h4 class="text-white font-bold">Import Export JG SAC (2021)</h4>
-                                        <p class="text-slate-400 text-sm">Analista de Sistemas. Implementación de
-                                            soluciones de software y hardware.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </main>
+            <div class="relative h-[500px] w-full flex items-center justify-center reveal delay-200">
+                <!-- Lottie Animation: Astronaut -->
+                <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_w51pcehl.json"
+                    background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay
+                    class="animate-float">
+                </lottie-player>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="about" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-center text-fuchsia-400 font-medium mb-4 reveal">ARSENAL TECNOLÓGICO</p>
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-center mb-16 reveal">Mis Herramientas</h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 reveal">
+                <!-- Skill Cards -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-yellow-400 group-hover:scale-110 transition-transform">code</span>
+                    <span class="font-medium">Python</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-blue-400 group-hover:scale-110 transition-transform">cloud</span>
+                    <span class="font-medium">Google Cloud</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-orange-400 group-hover:scale-110 transition-transform">html</span>
+                    <span class="font-medium">HTML/CSS</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-green-400 group-hover:scale-110 transition-transform">terminal</span>
+                    <span class="font-medium">Web Scraping</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-purple-400 group-hover:scale-110 transition-transform">search</span>
+                    <span class="font-medium">SEO</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-red-400 group-hover:scale-110 transition-transform">schema</span>
+                    <span class="font-medium">BPMN</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Timeline) -->
+    <section id="experience" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-16 text-center reveal">Trayectoria Profesional
+            </h2>
+
+            <div
+                class="space-y-12 relative before:content-[''] before:absolute before:left-4 md:before:left-1/2 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-fuchsia-500 before:to-cyan-500 before:opacity-30">
+
+                <!-- Item 1 -->
+                <div class="relative flex flex-col md:flex-row gap-8 items-center reveal">
+                    <div class="md:w-1/2 md:text-right order-2 md:order-1">
+                        <div class="glass-card p-6 rounded-2xl inline-block text-left md:text-right w-full">
+                            <span class="text-fuchsia-400 text-sm font-bold tracking-wider">AGO 2023 - NOV 2023</span>
+                            <h3 class="text-xl font-bold mt-2">Practicante Pre Profesional</h3>
+                            <p class="text-gray-400 text-sm mt-1">UGEL N° 03, Lima</p>
+                            <p class="mt-4 text-gray-300 text-sm">Desarrollo de aplicaciones web, web scraping con
+                                Python y optimización de gestión educativa.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-fuchsia-500 shadow-[0_0_10px_#c026d3] order-1 md:order-2">
+                    </div>
+                    <div class="md:w-1/2 order-3"></div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative flex flex-col md:flex-row gap-8 items-center reveal">
+                    <div class="md:w-1/2 order-2 md:order-1"></div>
+                    <div
+                        class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_10px_#06b6d4] order-1 md:order-2">
+                    </div>
+                    <div class="md:w-1/2 order-3 md:order-3">
+                        <div class="glass-card p-6 rounded-2xl w-full">
+                            <span class="text-cyan-400 text-sm font-bold tracking-wider">ENE 2018 - JUL 2023</span>
+                            <h3 class="text-xl font-bold mt-2">Administrador</h3>
+                            <p class="text-gray-400 text-sm mt-1">Negocio Independiente</p>
+                            <p class="mt-4 text-gray-300 text-sm">Gestión integral de operaciones, implementación de
+                                sistemas y estrategias de marketing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative flex flex-col md:flex-row gap-8 items-center reveal">
+                    <div class="md:w-1/2 md:text-right order-2 md:order-1">
+                        <div class="glass-card p-6 rounded-2xl inline-block text-left md:text-right w-full">
+                            <span class="text-purple-400 text-sm font-bold tracking-wider">MAR 2021 - DIC 2021</span>
+                            <h3 class="text-xl font-bold mt-2">Analista de Sistemas</h3>
+                            <p class="text-gray-400 text-sm mt-1">Import Export JG SAC</p>
+                            <p class="mt-4 text-gray-300 text-sm">Supervisión de procesos, análisis empresarial y diseño
+                                de soluciones tecnológicas.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7] order-1 md:order-2">
+                    </div>
+                    <div class="md:w-1/2 order-3"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-fuchsia-900/10 pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">¿Listo para despegar?</h2>
+                <p class="text-gray-400 mb-8 text-lg">
+                    Estoy disponible para nuevos proyectos y colaboraciones. Si tienes una idea innovadora, hablemos.
+                </p>
+
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm text-gray-400 ml-1">Nombre</label>
+                            <input type="text"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-fuchsia-500 focus:bg-white/10 transition-all"
+                                placeholder="Tu nombre">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm text-gray-400 ml-1">Email</label>
+                            <input type="email"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-fuchsia-500 focus:bg-white/10 transition-all"
+                                placeholder="tu@email.com">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm text-gray-400 ml-1">Mensaje</label>
+                        <textarea rows="4"
+                            class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-fuchsia-500 focus:bg-white/10 transition-all"
+                            placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                    </div>
+                    <a href="mailto:josericky97@gmail.com"
+                        class="inline-block w-full py-4 rounded-xl bg-gradient-to-r from-fuchsia-600 to-cyan-600 text-white font-bold text-center hover:shadow-[0_0_30px_rgba(192,38,211,0.4)] transition-all transform hover:-translate-y-1">
+                        Enviar Transmisión
+                    </a>
+                </form>
+
+                <div class="mt-12 flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
+                            class="material-symbols-outlined text-3xl">mail</span></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
+                            class="material-symbols-outlined text-3xl">code</span></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
+                            class="material-symbols-outlined text-3xl">terminal</span></a>
+                </div>
+            </div>
+
+            <div class="h-[400px] lg:h-[600px] flex items-center justify-center reveal delay-200 relative">
+                <!-- Lottie Animation: Planet/Tech -->
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_kkflmtur.json"
+                    background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay>
+                </lottie-player>
+            </div>
+        </div>
+    </section>
 
     <!-- Circular Navigation Menu -->
-    <div class="fixed bottom-8 left-8 z-50 group">
-        <button
-            class="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center transition-transform duration-300 group-hover:rotate-90 focus:outline-none">
-            <span class="material-symbols-outlined text-2xl">palette</span>
+    <div class="circular-menu">
+        <button class="menu-toggle" id="menuToggle">
+            <span class="material-symbols-outlined">palette</span>
         </button>
-
-        <!-- Menu Items -->
-        <div class="absolute bottom-0 left-0 w-14 h-14 pointer-events-none">
-            <!-- Theme 1: Default (Home) -->
-            <a href="index.html"
-                class="absolute bottom-0 left-0 w-10 h-10 bg-blue-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[80px] group-hover:left-0 pointer-events-auto hover:scale-110"
-                title="Default">
-                <span class="material-symbols-outlined text-lg">home</span>
+        <div class="menu-items" id="menuItems">
+            <a href="index.html" class="menu-item" data-tooltip="Inicio">
+                <span class="material-symbols-outlined">home</span>
             </a>
-            <!-- Theme 2: Nature -->
-            <a href="cv.html"
-                class="absolute bottom-0 left-0 w-10 h-10 bg-emerald-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-75 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[70px] group-hover:left-[50px] pointer-events-auto hover:scale-110"
-                title="Nature">
-                <span class="material-symbols-outlined text-lg">forest</span>
+            <a href="cv.html" class="menu-item" data-tooltip="Nature">
+                <span class="material-symbols-outlined">eco</span>
             </a>
-            <!-- Theme 3: Ocean -->
-            <a href="cv_ocean.html"
-                class="absolute bottom-0 left-0 w-10 h-10 bg-cyan-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-100 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[40px] group-hover:left-[80px] pointer-events-auto hover:scale-110"
-                title="Ocean">
-                <span class="material-symbols-outlined text-lg">water_drop</span>
+            <a href="cv_ocean.html" class="menu-item" data-tooltip="Ocean">
+                <span class="material-symbols-outlined">water_drop</span>
             </a>
-            <!-- Theme 4: Sunset -->
-            <a href="cv_sunset.html"
-                class="absolute bottom-0 left-0 w-10 h-10 bg-orange-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-150 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-0 group-hover:left-[90px] pointer-events-auto hover:scale-110"
-                title="Sunset">
-                <span class="material-symbols-outlined text-lg">wb_sunny</span>
+            <a href="cv_sunset.html" class="menu-item" data-tooltip="Sunset">
+                <span class="material-symbols-outlined">wb_twilight</span>
             </a>
-            <!-- Theme 5: Berry -->
-            <a href="cv_berry.html"
-                class="absolute bottom-0 left-0 w-10 h-10 bg-fuchsia-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-200 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[-45px] group-hover:left-[80px] pointer-events-auto hover:scale-110"
-                title="Berry">
-                <span class="material-symbols-outlined text-lg">grape</span>
+            <a href="cv_berry.html" class="menu-item" data-tooltip="Berry (Cosmic)">
+                <span class="material-symbols-outlined">rocket_launch</span>
             </a>
         </div>
     </div>
 
+    <script>
+        // --- Typewriter Effect ---
+        const words = ["Ingeniero de Sistemas", "Desarrollador Full Stack", "Innovador Tecnológico"];
+        let i = 0;
+        let timer;
+
+        function typeWriter() {
+            const heading = document.getElementById("typewriter");
+            const word = words[i];
+            let j = 0;
+            let isDeleting = false;
+
+            function loop() {
+                heading.innerHTML = word.substring(0, j);
+
+                if (!isDeleting && j < word.length) {
+                    j++;
+                    timer = setTimeout(loop, 100);
+                } else if (isDeleting && j > 0) {
+                    j--;
+                    timer = setTimeout(loop, 50);
+                } else {
+                    isDeleting = !isDeleting;
+                    if (!isDeleting) {
+                        i = (i + 1) % words.length;
+                        timer = setTimeout(typeWriter, 500); // Wait before typing next word
+                        return;
+                    }
+                    timer = setTimeout(loop, 1000); // Wait before deleting
+                }
+            }
+            loop();
+        }
+        typeWriter();
+
+        // --- Scroll Reveal ---
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Trigger once on load
+
+        // --- Circular Menu Logic ---
+        const menuToggle = document.getElementById('menuToggle');
+        const menuItems = document.getElementById('menuItems');
+
+        menuToggle.addEventListener('click', () => {
+            menuItems.classList.toggle('active');
+            const icon = menuToggle.querySelector('.material-symbols-outlined');
+            if (menuItems.classList.contains('active')) {
+                icon.textContent = 'close';
+                menuToggle.style.transform = 'rotate(90deg)';
+            } else {
+                icon.textContent = 'palette';
+                menuToggle.style.transform = 'rotate(0deg)';
+            }
+        });
+    </script>
 </body>
 
 </html>
