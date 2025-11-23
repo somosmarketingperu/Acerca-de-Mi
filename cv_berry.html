@@ -1,247 +1,213 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html class="dark" lang="es">
+
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>José Ricardo García Quispe - Berry CV</title>
+    <title>José Ricardo García Quispe - Berry Portfolio</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
-    <style type="text/tailwindcss">
-        @layer base {
-            :root {
-                --cream: #fdf4ff; /* Fuchsia 50 */
-                --dark-green: #701a75; /* Fuchsia 900 */
-            }
-        }
-    </style>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#c026d3" /* Fuchsia 600 */,
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#121620",
-                        "cream": "var(--cream)",
-                        "dark-green": "var(--dark-green)",
-                        "gold": "#D4AF37",
-                        "subtle-grey": "#A0A0A0",
-                        "light-green": "#D5DED5",
-                        "lighter-cream": "#E8E7DB",
+                        "primary": "#c026d3", // Fuchsia 600 for Berry theme
+                        "background-light": "#fdf4ff", // Fuchsia 50
+                        "background-dark": "#101022",
                     },
                     fontFamily: {
-                        "display": ["Spline Sans", "sans-serif"]
+                        "display": ["Space Grotesk", "sans-serif"]
                     },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
                 },
             },
         }
     </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
 </head>
-<body class="font-display bg-cream page-transition">
-    <header
-        class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between whitespace-nowrap bg-transparent px-6 sm:px-10 py-6 font-display">
-        <div class="flex items-center gap-2">
-            <div class="w-7 h-7 text-[#3655D5]">
-                <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 0L48 24L24 48L0 24L24 0ZM12 24L24 36L36 24L24 12L12 24Z"></path>
-                </svg>
-            </div>
-            <h2 class="text-dark-green text-xl font-bold leading-tight tracking-tight">LUMERT</h2>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-[#A0A0A0]">
+    <div class="relative min-h-screen w-full overflow-x-hidden">
+        <div class="fixed inset-0 z-[-1]">
+            <div class="absolute inset-0 bg-background-dark/90"></div>
+            <img class="h-full w-full object-cover opacity-20"
+                data-alt="Abstract dark blue and purple plexus background"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAKdjVfNxqEV5dHKFwlkOCe8Xi_dWjqaqIFy9lly_nL8j1gkJgAQQkET9XVbZH4kZe4Ap13_V7LfFD1Y404PC4w05Bq9FZH_cFO1NC1KI51Hu8m7N2-tYbRjcxKeJTBA340VLgmsuZf3ms_NaSrltIUvTO02Is_H2KLzIv8DBVfyIuwvYuqZeTcZbHE10vzR2k_MovKPU-vp1GNWC3YsMFYuNB9aIdqqFRZ2NCu4rcRUICgQrHcdKA3fTIsFxaLcAgg_UFdPx7GfCt" />
         </div>
-        <div class="hidden md:flex flex-1 justify-end items-center gap-8">
-            <button id="back-button" class="text-white text-sm font-medium leading-normal hover:text-gray-300 transition-colors">BACK</button>
-            <a class="text-white text-sm font-medium leading-normal hover:text-gray-300 transition-colors"
-                href="#">TOUR</a>
-            <a class="text-white text-sm font-medium leading-normal hover:text-gray-300 transition-colors"
-                href="#">MEET</a>
-        </div>
-        <div class="md:hidden">
-            <button class="text-white p-2 rounded-full">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
-        </div>
-    </header>
-    <main class="relative min-h-screen">
-        <div class="fixed top-0 left-0 w-full h-full lg:grid lg:grid-cols-2">
-            <div class="bg-cream"></div>
-            <div class="bg-dark-green"></div>
-        </div>
-        <div class="relative z-10 w-full max-w-7xl mx-auto py-16 px-6 sm:px-12">
-            <div class="flex flex-col items-center w-full">
-                <div class="flex flex-col gap-8 max-w-lg w-full relative z-20 mb-16 lg:mb-24">
-                    <div class="relative bg-white p-6 sm:p-8 rounded-lg shadow-lg">
-                        <div
-                            class="absolute -left-12 sm:-left-16 -top-10 sm:-top-14 w-28 sm:w-32 h-28 sm:h-32 bg-primary rounded-xl transform -rotate-12 z-0">
+        <div class="relative z-10">
+            <header class="sticky top-4 z-50 mx-auto max-w-4xl">
+                <div
+                    class="flex items-center justify-between whitespace-nowrap rounded-xl border border-white/10 bg-white/5 px-6 py-3 shadow-lg backdrop-blur-lg">
+                    <div class="flex items-center gap-4 text-white">
+                        <div class="size-6 text-primary">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
                         </div>
-                        <div
-                            class="absolute -left-16 sm:-left-20 -top-6 sm:-top-10 w-28 sm:w-32 h-28 sm:h-32 bg-primary rounded-xl transform rotate-12 z-0 opacity-50">
-                        </div>
-                        <div class="flex flex-col items-center text-center gap-6 relative">
-                            <img class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-white shadow-lg -mt-20 sm:-mt-24"
-                                data-alt="Professional headshot of Jane Doe"
-                                src="images/profile.png" />
-                            <div class="flex flex-col gap-2">
-                                <h1 class="text-dark-green text-4xl sm:text-5xl font-black leading-tight tracking-tighter">
-                                    José Ricardo García Quispe</h1>
-                                <h2 class="text-dark-green text-xl font-medium">Ingeniero de Sistemas</h2>
-                            </div>
-                            <p class="text-dark-green/80 text-base font-normal leading-relaxed">
-                                Apasionado por la innovación tecnológica. He logrado optimizar procesos y crear sistemas
-                                robustos. Mi experiencia como desarrollador Full Stack incluye web scraping con Python,
-                                conocimientos en Google Cloud y SEO. Estoy listo para liderar proyectos digitales de
-                                alto impacto.
-                            </p>
-                        </div>
+                        <h2 class="hidden sm:block text-white text-lg font-bold leading-tight tracking-[-0.015em]">JRGQ
+                            Portfolio</h2>
                     </div>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <div class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">💡</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Analítico</p>
-                        </div>
-                        <div class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">🔧</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Solucionador de problemas</p>
-                        </div>
-                        <div class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">🔄</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Adaptabilidad</p>
-                        </div>
-                        <div class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">🤖</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Machine Learning</p>
-                        </div>
-                        <div class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">☁️</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Cloud Computing</p>
-                        </div>
-                        <div class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">🤝</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Trabajo en Equipo</p>
-                        </div>
-                        <div class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">🤔</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Pensamiento Crítico</p>
-                        </div>
+                    <div class="hidden md:flex items-center gap-9 text-sm font-medium leading-normal">
+                        <a class="text-white hover:text-primary transition-colors" href="index.html">Inicio</a>
+                        <a class="text-white hover:text-primary transition-colors" href="#about">Sobre Mí</a>
+                        <a class="text-white hover:text-primary transition-colors" href="#projects">Experiencia</a>
+                        <a class="text-white hover:text-primary transition-colors" href="#contact">Contacto</a>
+                    </div>
+                    <div class="flex flex-1 justify-end">
+                        <button
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/80 transition-colors">
+                            <span class="truncate">CV</span>
+                        </button>
                     </div>
                 </div>
-                <div class="w-full">
-                    <div class="relative">
-                        <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-dark-green/20 -translate-x-1/2"></div>
-                        <div class="max-w-4xl mx-auto space-y-12">
-                            <!-- Educación -->
-                            <div class="relative flex items-center w-full">
-                                <div class="w-1/2 pr-8 text-right">
-                                    <div class="bg-lighter-cream p-6 rounded-lg inline-block text-left shadow-sm max-w-md">
-                                        <p class="text-dark-green text-lg font-medium leading-normal">Estudiante de Ingeniería de Sistemas</p>
-                                        <p class="text-dark-green/70 text-base font-normal leading-normal">Universidad de Lima</p>
-                                        <p class="text-dark-green/90 text-sm mt-2">Estudiante del décimo ciclo de la carrera de ing. de sistemas altamente capacitado en el diseño, desarrollo, implementación y gestión de sistemas y tecnologías de la información, preparado para enfrentar los desafíos tecnológicos en diversos sectores, como el empresarial, gubernamental y académico. además, estoy capacitado para seguir aprendiendo y adaptándome en un campo en constante evolución.</p>
-                                    </div>
-                                </div>
-                                <div class="absolute left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        class="h-24 w-24 p-2 rounded-full bg-cream border-2 border-dark-green/30 flex items-center justify-center font-bold text-dark-green text-center text-sm">
-                                        2019 - Presente</div>
-                                </div>
-                                <div class="w-1/2 pl-8">
-                                </div>
+            </header>
+            <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+                <section class="flex min-h-[60vh] flex-col items-center justify-center gap-6 text-center sm:gap-8">
+                    <div class="relative w-32 h-32 sm:w-40 sm:h-40 mb-4">
+                        <img src="images/profile.png" alt="José Ricardo García Quispe"
+                            class="rounded-full border-4 border-primary/50 shadow-2xl object-cover w-full h-full">
+                    </div>
+                    <h2 class="text-base font-normal leading-normal sm:text-lg text-slate-300">Hola, Soy José Ricardo
+                    </h2>
+                    <h1
+                        class="text-4xl font-black leading-tight tracking-[-0.033em] sm:text-5xl md:text-6xl text-white">
+                        Ingeniero de Sistemas <br /> & Full Stack Developer</h1>
+                    <p class="max-w-xl text-slate-400">Apasionado por la innovación tecnológica, optimización de
+                        procesos y creación de sistemas robustos. Especialista en Web Scraping, Cloud Computing y
+                        Machine Learning.</p>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/80 transition-colors">
+                        <span class="truncate">CONTACTAR</span>
+                    </button>
+                </section>
+
+                <section id="about" class="py-16 sm:py-24">
+                    <h2
+                        class="text-white text-[28px] sm:text-4xl font-bold leading-tight tracking-[-0.015em] mb-8 text-center">
+                        Sobre Mí</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div
+                            class="lg:col-span-2 rounded-xl bg-background-dark/50 border border-white/10 p-6 flex flex-col justify-end min-h-[300px] bg-cover bg-center relative overflow-hidden group">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent z-0">
                             </div>
-                            <!-- Experiencia 1 -->
-                            <div class="relative flex items-center w-full">
-                                <div class="w-1/2 pr-8">
-                                </div>
-                                <div class="absolute left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        class="h-24 w-24 p-2 rounded-full bg-cream border-2 border-dark-green/30 flex items-center justify-center font-bold text-dark-green text-center text-sm">
-                                        ago. 2023 - nov. 2023</div>
-                                </div>
-                                <div class="w-1/2 pl-8 text-left">
-                                    <div class="bg-light-green p-6 rounded-lg inline-block text-left shadow-sm max-w-md">
-                                        <p class="text-dark-green text-lg font-medium leading-normal">Practicante Pre Profesional</p>
-                                        <p class="text-dark-green/70 text-base font-normal leading-normal">Unidad de Gestión Educativa N° 03</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Rol:</span> Desarrollé aplicaciones web y utilicé técnicas de web scraping con Python para mejorar la gestión educativa. Además, contribuí en la elaboración de manuales BPMN y la guía para la nueva página web de la UGEL 03.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Valor:</span> Implementé soluciones tecnológicas que optimizaron procesos y recopilaron datos relevantes, además de colaborar en la estandarización de procesos administrativos y educativos.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Aprendizaje:</span> Adquirí habilidades en desarrollo web, web scraping con Python, análisis de datos y elaboración de BPMN, fortaleciendo mi contribución a la gestión educativa mediante la tecnología y mejora continua de procesos.</p>
-                                    </div>
-                                </div>
+                            <div class="relative z-10 flex flex-col gap-2">
+                                <p class="text-white text-2xl font-bold leading-tight">Perfil Profesional</p>
+                                <p class="text-slate-300 text-base font-medium leading-normal">
+                                    Estudiante del décimo ciclo de Ingeniería de Sistemas en la Universidad de Lima.
+                                    Capacitado en diseño, desarrollo e implementación de sistemas TI. Preparado para
+                                    desafíos en sectores empresariales y gubernamentales.
+                                </p>
                             </div>
-                            <!-- Experiencia 2 -->
-                            <div class="relative flex items-center w-full">
-                                <div class="w-1/2 pr-8 text-right">
-                                    <div class="bg-lighter-cream p-6 rounded-lg inline-block text-left shadow-sm max-w-md">
-                                        <p class="text-dark-green text-lg font-medium leading-normal">Administrador</p>
-                                        <p class="text-dark-green/70 text-base font-normal leading-normal">Negocio Independiente</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Rol:</span> Implementé todas las operaciones, desde la gestión financiera hasta la implementación de sistemas tecnológicos, mientras ofrecía atención al cliente y desarrollaba estrategias de marketing.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Valor:</span> Contribuí a la eficiencia operativa y sostenibilidad mediante la gestión integral de operaciones y el enfoque en la experiencia del cliente.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Aprendizaje:</span> Desarrollé habilidades en gestión financiera, cumplimiento normativo, atención al cliente, y estrategias de marketing, fortaleciendo mi capacidad para liderar operaciones complejas de manera efectiva.</p>
-                                    </div>
-                                </div>
-                                <div class="absolute left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        class="h-24 w-24 p-2 rounded-full bg-cream border-2 border-dark-green/30 flex items-center justify-center font-bold text-dark-green text-center text-sm">
-                                        ene. 2018 - jul. 2023</div>
-                                </div>
-                                <div class="w-1/2 pl-8">
-                                </div>
+                        </div>
+
+                        <div class="rounded-xl bg-background-dark/50 border border-white/10 p-6 flex flex-col gap-4">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary text-2xl">
+                                    terminal
+                                </span>
+                                <h3 class="text-white text-lg font-bold">Habilidades</h3>
                             </div>
-                            <!-- Experiencia 3 -->
-                            <div class="relative flex items-center w-full">
-                                <div class="w-1/2 pr-8">
-                                </div>
-                                <div class="absolute left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        class="h-24 w-24 p-2 rounded-full bg-cream border-2 border-dark-green/30 flex items-center justify-center font-bold text-dark-green text-center text-sm">
-                                        mar. 2021 - dic. 2021</div>
-                                </div>
-                                <div class="w-1/2 pl-8 text-left">
-                                    <div class="bg-light-green p-6 rounded-lg inline-block text-left shadow-sm max-w-md">
-                                        <p class="text-dark-green text-lg font-medium leading-normal">Analista de Sistemas</p>
-                                        <p class="text-dark-green/70 text-base font-normal leading-normal">Import Export JG SAC</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Rol:</span> Supervisé procesos en diversas áreas, desarrollando habilidades en análisis empresarial y diseño de soluciones tecnológicas.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Valor:</span> Aporté eficiencia operativa mediante la implementación exitosa de soluciones de software y hardware, liderando proyectos de mantenimiento y seguridad.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Aprendizaje:</span> Adquirí destrezas en gestión de proyectos, pruebas de sistemas y depuración, fortaleciendo mi capacidad para impulsar la innovación en entornos empresariales.</p>
-                                    </div>
-                                </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">Python</span>
+                                <span
+                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">Web
+                                    Scraping</span>
+                                <span
+                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">Google
+                                    Cloud</span>
+                                <span
+                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">Machine
+                                    Learning</span>
+                                <span
+                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">SEO</span>
+                                <span
+                                    class="px-3 py-1 text-sm rounded-full bg-primary/20 text-fuchsia-200 border border-primary/30 text-white">BPMN</span>
                             </div>
-                            <!-- Experiencia 4 -->
-                            <div class="relative flex items-center w-full">
-                                <div class="w-1/2 pr-8 text-right">
-                                    <div class="bg-lighter-cream p-6 rounded-lg inline-block text-left shadow-sm max-w-md">
-                                        <p class="text-dark-green text-lg font-medium leading-normal">Analista de Procesos y Mejora Continua</p>
-                                        <p class="text-dark-green/70 text-base font-normal leading-normal">Import Export JG SAC</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Rol:</span> Durante mi experiencia en la empresa, identifiqué procesos generadores de cuellos de botella y desarrollé medidas preventivas para minimizar la pérdida de materias primas. Logré reducir la adquisición de insumos en un 40% y optimicé el tiempo de fabricación.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Valor:</span> Contribuí significativamente a la eficiencia operativa al implementar medidas preventivas que redujeron los cuellos de botella y maximizaron la utilización de recursos.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Aprendizaje:</span> Adquirí habilidades en gestión de procesos, optimización de recursos y mejora continua, fortaleciendo mi capacidad para impulsar la eficiencia y reducir costos en entornos empresariales.</p>
+                        </div>
+
+                        <div class="rounded-xl bg-background-dark/50 border border-white/10 p-6 flex flex-col justify-between"
+                            data-alt="A subtle wireframe globe graphic in the background">
+                            <div class="flex flex-col gap-1">
+                                <p class="text-[#9d9db9] text-sm font-normal leading-normal">Ubicación</p>
+                                <p class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Lima, Perú</p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-4">
+                                <span class="material-symbols-outlined text-primary text-2xl">
+                                    public
+                                </span>
+                                <p class="text-[#9d9db9] text-base font-normal leading-normal">Disponible para proyectos
+                                    globales.</p>
+                            </div>
+                        </div>
+
+                        <div id="contact"
+                            class="rounded-xl border border-white/10 p-6 flex flex-col justify-between bg-fuchsia-900/30">
+                            <div class="flex flex-col gap-4">
+                                <h3 class="text-white text-xl font-bold leading-tight">¿Listo para innovar?</h3>
+                                <p class="text-slate-300 text-sm">Contáctame para colaborar en tu próximo proyecto
+                                    tecnológico.</p>
+                            </div>
+                            <a href="mailto:josericky97@gmail.com"
+                                class="mt-4 flex items-center justify-center gap-2 rounded-full h-10 px-4 bg-black/50 text-white text-sm font-medium hover:bg-black/70 transition-colors">
+                                <span class="material-symbols-outlined text-base">mail</span>
+                                <span>josericky97@gmail.com</span>
+                            </a>
+                        </div>
+
+                        <div class="lg:col-span-2 rounded-xl bg-background-dark/50 border border-white/10 p-6 flex flex-col justify-between relative overflow-hidden"
+                            id="projects">
+                            <div class="flex flex-col gap-4 z-10">
+                                <h3 class="text-white text-lg font-bold">Experiencia Destacada</h3>
+                                <div class="space-y-4">
+                                    <div class="border-l-2 border-primary pl-4">
+                                        <h4 class="text-white font-bold">UGEL N° 03 (2023)</h4>
+                                        <p class="text-slate-400 text-sm">Desarrollo de apps web y Web Scraping con
+                                            Python. Optimización de gestión educativa.</p>
                                     </div>
-                                </div>
-                                <div class="absolute left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        class="h-24 w-24 p-2 rounded-full bg-cream border-2 border-dark-green/30 flex items-center justify-center font-bold text-dark-green text-center text-sm">
-                                        mar. 2015 - mar. 2016</div>
-                                </div>
-                                <div class="w-1/2 pl-8">
+                                    <div class="border-l-2 border-primary pl-4">
+                                        <h4 class="text-white font-bold">Negocio Independiente (2018-2023)</h4>
+                                        <p class="text-slate-400 text-sm">Administrador. Gestión financiera e
+                                            implementación de sistemas tecnológicos.</p>
+                                    </div>
+                                    <div class="border-l-2 border-primary pl-4">
+                                        <h4 class="text-white font-bold">Import Export JG SAC (2021)</h4>
+                                        <p class="text-slate-400 text-sm">Analista de Sistemas. Implementación de
+                                            soluciones de software y hardware.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </section>
+            </main>
         </div>
-    </main>
-    <script>
-        document.getElementById('back-button').addEventListener('click', () => {
-            document.body.classList.add('page-slide-out-right');
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 500);
-        });
-    </script>
+    </div>
 
     <!-- Circular Navigation Menu -->
     <div class="fixed bottom-8 left-8 z-50 group">
@@ -284,6 +250,7 @@
             </a>
         </div>
     </div>
-</body>
-</html>
 
+</body>
+
+</html>
