@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
     <style type="text/tailwindcss">
@@ -242,5 +242,48 @@
             }, 500);
         });
     </script>
+
+    <!-- Circular Navigation Menu -->
+    <div class="fixed bottom-8 left-8 z-50 group">
+        <button
+            class="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center transition-transform duration-300 group-hover:rotate-90 focus:outline-none">
+            <span class="material-symbols-outlined text-2xl">palette</span>
+        </button>
+
+        <!-- Menu Items -->
+        <div class="absolute bottom-0 left-0 w-14 h-14 pointer-events-none">
+            <!-- Theme 1: Default (Home) -->
+            <a href="index.html"
+                class="absolute bottom-0 left-0 w-10 h-10 bg-blue-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[80px] group-hover:left-0 pointer-events-auto hover:scale-110"
+                title="Default">
+                <span class="material-symbols-outlined text-lg">home</span>
+            </a>
+            <!-- Theme 2: Nature -->
+            <a href="cv.html"
+                class="absolute bottom-0 left-0 w-10 h-10 bg-emerald-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-75 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[70px] group-hover:left-[50px] pointer-events-auto hover:scale-110"
+                title="Nature">
+                <span class="material-symbols-outlined text-lg">forest</span>
+            </a>
+            <!-- Theme 3: Ocean -->
+            <a href="cv_ocean.html"
+                class="absolute bottom-0 left-0 w-10 h-10 bg-cyan-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-100 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[40px] group-hover:left-[80px] pointer-events-auto hover:scale-110"
+                title="Ocean">
+                <span class="material-symbols-outlined text-lg">water_drop</span>
+            </a>
+            <!-- Theme 4: Sunset -->
+            <a href="cv_sunset.html"
+                class="absolute bottom-0 left-0 w-10 h-10 bg-orange-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-150 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-0 group-hover:left-[90px] pointer-events-auto hover:scale-110"
+                title="Sunset">
+                <span class="material-symbols-outlined text-lg">wb_sunny</span>
+            </a>
+            <!-- Theme 5: Berry -->
+            <a href="cv_berry.html"
+                class="absolute bottom-0 left-0 w-10 h-10 bg-fuchsia-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-200 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[-45px] group-hover:left-[80px] pointer-events-auto hover:scale-110"
+                title="Berry">
+                <span class="material-symbols-outlined text-lg">grape</span>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
+

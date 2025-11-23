@@ -63,6 +63,17 @@ Esta sección documenta el estado actual del proyecto tal como está implementad
         - Disparar animaciones de entrada (`fade-in-up`, `fade-in-left`) cuando los elementos entran en pantalla.
     - Inyección dinámica de contenido HTML.
 
+### 2.4. Página de CV Detallado (`cv.html`)
+- **Propósito:** Vista detallada y profesional del currículum vitae.
+- **Diseño:** Estilo distinto con paleta de colores personalizada (Cream, Dark Green, Gold) y tipografía `Spline Sans`.
+- **Características:**
+    - Encabezado fijo con marca "LUMERT".
+    - Sección Hero con foto de perfil y resumen profesional.
+    - Grid de habilidades blandas y técnicas con iconos.
+    - Línea de tiempo detallada de educación y experiencia laboral.
+    - Botón "BACK" para regresar a `index.html` con animación de salida.
+
+
 ---
 
 ## 3. Estado del Proyecto
