@@ -309,462 +309,360 @@
                         <span>Iniciar Misión</span>
                         <span class="material-symbols-outlined text-sm">rocket_launch</span>
                     </a>
-                    <a href="#experience" } .glass-card:hover { background: rgba(255, 255, 255, 0.07); border-color:
-                        rgba(192, 38, 211, 0.5); transform: translateY(-5px); box-shadow: 0 0 20px rgba(192, 38, 211,
-                        0.2); } .glass-nav { background: rgba(3, 0, 20, 0.7); backdrop-filter: blur(20px);
-                        border-bottom: 1px solid rgba(255, 255, 255, 0.05); } /* Scroll Reveal Class */ .reveal {
-                        opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; } .reveal.active {
-                        opacity: 1; transform: translateY(0); } /* Circular Menu Styles */ .circular-menu { position:
-                        fixed; bottom: 2rem; right: 2rem; z-index: 50; } .menu-toggle { width: 3.5rem; height: 3.5rem;
-                        border-radius: 50%; background: linear-gradient(135deg, #c026d3, #701a75); color: white;
-                        display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px
-                        15px rgba(192, 38, 211, 0.4); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); border:
-                        none; } .menu-toggle:hover { transform: scale(1.1) rotate(90deg); } .menu-items { position:
-                        absolute; bottom: 100%; right: 0; margin-bottom: 1rem; display: flex; flex-direction: column;
-                        gap: 0.75rem; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s
-                        cubic-bezier(0.4, 0, 0.2, 1); } .menu-items.active { opacity: 1; visibility: visible; transform:
-                        translateY(0); } .menu-item { width: 3rem; height: 3rem; border-radius: 50%; background:
-                        rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); color: white; display: flex; align-items:
-                        center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0, 0, 0,
-                        0.3); transition: all 0.2s ease; border: 1px solid rgba(255, 255, 255, 0.1); position: relative;
-                        } .menu-item:hover { background: #c026d3; transform: translateX(-5px); } .menu-item::after {
-                        content: attr(data-tooltip); position: absolute; right: 120%; background: rgba(0, 0, 0, 0.8);
-                        padding: 0.25rem 0.75rem; border-radius: 0.5rem; font-size: 0.75rem; white-space: nowrap;
-                        opacity: 0; visibility: hidden; transition: opacity 0.2s; pointer-events: none; border: 1px
-                        solid rgba(255, 255, 255, 0.1); } .menu-item:hover::after { opacity: 1; visibility: visible; }
-                        /* Custom Scrollbar */ ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track {
-                        background: #030014; } ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-                        ::-webkit-scrollbar-thumb:hover { background: #c026d3; } </style>
-                        </head>
+                    <a href="#experience"
+                        class="px-8 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all hover:scale-105 backdrop-blur-sm">
+                        Ver Trayectoria
+                    </a>
+                </div>
 
-                        <body class="antialiased selection:bg-fuchsia-500 selection:text-white">
+                <!-- Stats Grid (Mini) with CountUp Animation -->
+                <div class="grid grid-cols-3 gap-6 pt-12 border-t border-white/10 mt-12" id="stats-section">
+                    <div>
+                        <div class="text-3xl font-display font-bold text-white flex items-baseline">
+                            <span class="counter" data-target="8">0</span><span>+</span>
+                        </div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Años Exp.</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-display font-bold text-white flex items-baseline">
+                            <span class="counter" data-target="20">0</span><span>+</span>
+                        </div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Proyectos</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-display font-bold text-white flex items-baseline">
+                            <span class="counter" data-target="100">0</span><span>%</span>
+                        </div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Compromiso</div>
+                    </div>
+                </div>
+            </div>
 
-                            <!-- Background Stars -->
-                            <div class="stars"></div>
+            <div class="relative h-[500px] w-full flex items-center justify-center reveal delay-200">
+                <!-- Lottie Animation: Astronaut -->
+                <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_w51pcehl.json"
+                    background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay
+                    class="animate-float">
+                </lottie-player>
+            </div>
+        </div>
+    </section>
 
-                            <!-- Navbar -->
-                            <nav class="fixed w-full top-0 z-40 glass-nav transition-all duration-300" id="navbar">
-                                <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                                    <a href="#"
-                                        class="text-2xl font-display font-bold tracking-tighter hover:text-fuchsia-400 transition-colors">
-                                        JR<span class="text-fuchsia-500">.</span>
-                                    </a>
-                                    <div class="hidden md:flex gap-8 text-sm font-medium text-gray-300">
-                                        <a href="#home" class="hover:text-fuchsia-400 transition-colors">Inicio</a>
-                                        <a href="#about" class="hover:text-fuchsia-400 transition-colors">Sobre Mí</a>
-                                        <a href="#experience"
-                                            class="hover:text-fuchsia-400 transition-colors">Experiencia</a>
-                                        <a href="#contact" class="hover:text-fuchsia-400 transition-colors">Contacto</a>
-                                    </div>
-                                    <a href="#contact"
-                                        class="px-5 py-2 rounded-full bg-gradient-to-r from-fuchsia-600 to-cyan-600 text-white font-medium text-sm hover:shadow-[0_0_20px_rgba(192,38,211,0.5)] transition-all duration-300 transform hover:scale-105">
-                                        Contáctame
-                                    </a>
-                                </div>
-                            </nav>
+    <!-- Skills Section -->
+    <section id="about" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-center text-fuchsia-400 font-medium mb-4 reveal">ARSENAL TECNOLÓGICO</p>
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-center mb-16 reveal">Mis Herramientas</h2>
 
-                            <!-- Hero Section -->
-                            <section id="home"
-                                class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
-                                <!-- Background Glows -->
-                                <div
-                                    class="absolute top-1/4 left-1/4 w-96 h-96 bg-fuchsia-600/20 rounded-full blur-[128px] -z-10">
-                                </div>
-                                <div
-                                    class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-600/20 rounded-full blur-[128px] -z-10">
-                                </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 reveal">
+                <!-- Skill Cards -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-yellow-400 group-hover:scale-110 transition-transform">code</span>
+                    <span class="font-medium">Python</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-blue-400 group-hover:scale-110 transition-transform">cloud</span>
+                    <span class="font-medium">Google Cloud</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-orange-400 group-hover:scale-110 transition-transform">html</span>
+                    <span class="font-medium">HTML/CSS</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-green-400 group-hover:scale-110 transition-transform">terminal</span>
+                    <span class="font-medium">Web Scraping</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-purple-400 group-hover:scale-110 transition-transform">search</span>
+                    <span class="font-medium">SEO</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
+                    <span
+                        class="material-symbols-outlined text-4xl text-red-400 group-hover:scale-110 transition-transform">schema</span>
+                    <span class="font-medium">BPMN</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                                <div
-                                    class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-                                    <div class="space-y-6 reveal active">
-                                        <div
-                                            class="inline-block px-3 py-1 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-400 text-sm font-medium mb-4">
-                                            🚀 Bienvenido a mi universo digital
-                                        </div>
-                                        <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight">
-                                            Hola, soy <br>
-                                            <span
-                                                class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-400">José
-                                                Ricardo</span>
-                                        </h1>
-                                        <div class="text-xl md:text-2xl text-gray-400 font-light h-8">
-                                            I am a <span id="typewriter"
-                                                class="text-cyan-400 font-semibold"></span><span
-                                                class="animate-pulse">|</span>
-                                        </div>
-                                        <p class="text-gray-400 max-w-lg leading-relaxed">
-                                            Ingeniero de Sistemas y Desarrollador Full Stack apasionado por la
-                                            innovación. Especialista en crear
-                                            soluciones digitales robustas, desde web scraping hasta optimización de
-                                            procesos.
-                                        </p>
-                                        <div class="flex flex-wrap gap-4 pt-4">
-                                            <a href="#contact"
-                                                class="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-gray-200 transition-all hover:scale-105 flex items-center gap-2">
-                                                <span>Iniciar Misión</span>
-                                                <span class="material-symbols-outlined text-sm">rocket_launch</span>
-                                            </a>
-                                            <a href="#experience"
-                                                class="px-8 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all hover:scale-105 backdrop-blur-sm">
-                                                Ver Trayectoria
-                                            </a>
-                                        </div>
+    <!-- Experience Section (Timeline) -->
+    <section id="experience" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-16 text-center reveal">Trayectoria Profesional
+            </h2>
 
-                                        <!-- Stats Grid (Mini) -->
-                                        <div
-                                            class="grid grid-cols-3 gap-6 pt-12 border-t border-white/10 mt-12 stats-grid">
-                                            <div>
-                                                <div class="text-3xl font-display font-bold text-white counter"
-                                                    data-target="8" data-suffix="+">0</div>
-                                                <div class="text-xs text-gray-500 uppercase tracking-wider">Años Exp.
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="text-3xl font-display font-bold text-white counter"
-                                                    data-target="20" data-suffix="+">0</div>
-                                                <div class="text-xs text-gray-500 uppercase tracking-wider">Proyectos
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="text-3xl font-display font-bold text-white counter"
-                                                    data-target="100" data-suffix="%">0</div>
-                                                <div class="text-xs text-gray-500 uppercase tracking-wider">Compromiso
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+            <div
+                class="space-y-12 relative before:content-[''] before:absolute before:left-4 md:before:left-1/2 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-fuchsia-500 before:to-cyan-500 before:opacity-30">
 
-                                    <div
-                                        class="relative h-[500px] w-full flex items-center justify-center reveal delay-200">
-                                        <!-- Lottie Animation: Astronaut -->
-                                        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_w51pcehl.json"
-                                            background="transparent" speed="1" style="width: 100%; height: 100%;" loop
-                                            autoplay class="animate-float">
-                                        </lottie-player>
-                                    </div>
-                                </div>
-                            </section>
+                <!-- Item 1 -->
+                <div class="relative flex flex-col md:flex-row gap-8 items-center reveal">
+                    <div class="md:w-1/2 md:text-right order-2 md:order-1">
+                        <div class="glass-card p-6 rounded-2xl inline-block text-left md:text-right w-full">
+                            <span class="text-fuchsia-400 text-sm font-bold tracking-wider">AGO 2023 - NOV 2023</span>
+                            <h3 class="text-xl font-bold mt-2">Practicante Pre Profesional</h3>
+                            <p class="text-gray-400 text-sm mt-1">UGEL N° 03, Lima</p>
+                            <p class="mt-4 text-gray-300 text-sm">Desarrollo de aplicaciones web, web scraping con
+                                Python y optimización de gestión educativa.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-fuchsia-500 shadow-[0_0_10px_#c026d3] order-1 md:order-2">
+                    </div>
+                    <div class="md:w-1/2 order-3"></div>
+                </div>
 
-                            <!-- Skills Section -->
-                            <section id="about" class="py-20 relative">
-                                <div class="max-w-7xl mx-auto px-6">
-                                    <p class="text-center text-fuchsia-400 font-medium mb-4 reveal">ARSENAL TECNOLÓGICO
-                                    </p>
-                                    <h2 class="text-4xl md:text-5xl font-display font-bold text-center mb-16 reveal">Mis
-                                        Herramientas</h2>
+                <!-- Item 2 -->
+                <div class="relative flex flex-col md:flex-row gap-8 items-center reveal">
+                    <div class="md:w-1/2 order-2 md:order-1"></div>
+                    <div
+                        class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_10px_#06b6d4] order-1 md:order-2">
+                    </div>
+                    <div class="md:w-1/2 order-3 md:order-3">
+                        <div class="glass-card p-6 rounded-2xl w-full">
+                            <span class="text-cyan-400 text-sm font-bold tracking-wider">ENE 2018 - JUL 2023</span>
+                            <h3 class="text-xl font-bold mt-2">Administrador</h3>
+                            <p class="text-gray-400 text-sm mt-1">Negocio Independiente</p>
+                            <p class="mt-4 text-gray-300 text-sm">Gestión integral de operaciones, implementación de
+                                sistemas y estrategias de marketing.</p>
+                        </div>
+                    </div>
+                </div>
 
-                                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 reveal">
-                                        <!-- Skill Cards -->
-                                        <div
-                                            class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
-                                            <span
-                                                class="material-symbols-outlined text-4xl text-yellow-400 group-hover:scale-110 transition-transform">code</span>
-                                            <span class="font-medium">Python</span>
-                                        </div>
-                                        <div
-                                            class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
-                                            <span
-                                                class="material-symbols-outlined text-4xl text-blue-400 group-hover:scale-110 transition-transform">cloud</span>
-                                            <span class="font-medium">Google Cloud</span>
-                                        </div>
-                                        <div
-                                            class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
-                                            <span
-                                                class="material-symbols-outlined text-4xl text-orange-400 group-hover:scale-110 transition-transform">html</span>
-                                            <span class="font-medium">HTML/CSS</span>
-                                        </div>
-                                        <div
-                                            class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
-                                            <span
-                                                class="material-symbols-outlined text-4xl text-green-400 group-hover:scale-110 transition-transform">terminal</span>
-                                            <span class="font-medium">Web Scraping</span>
-                                        </div>
-                                        <div
-                                            class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
-                                            <span
-                                                class="material-symbols-outlined text-4xl text-purple-400 group-hover:scale-110 transition-transform">search</span>
-                                            <span class="font-medium">SEO</span>
-                                        </div>
-                                        <div
-                                            class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group">
-                                            <span
-                                                class="material-symbols-outlined text-4xl text-red-400 group-hover:scale-110 transition-transform">schema</span>
-                                            <span class="font-medium">BPMN</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                <!-- Item 3 -->
+                <div class="relative flex flex-col md:flex-row gap-8 items-center reveal">
+                    <div class="md:w-1/2 md:text-right order-2 md:order-1">
+                        <div class="glass-card p-6 rounded-2xl inline-block text-left md:text-right w-full">
+                            <span class="text-purple-400 text-sm font-bold tracking-wider">MAR 2021 - DIC 2021</span>
+                            <h3 class="text-xl font-bold mt-2">Analista de Sistemas</h3>
+                            <p class="text-gray-400 text-sm mt-1">Import Export JG SAC</p>
+                            <p class="mt-4 text-gray-300 text-sm">Supervisión de procesos, análisis empresarial y diseño
+                                de soluciones tecnológicas.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7] order-1 md:order-2">
+                    </div>
+                    <div class="md:w-1/2 order-3"></div>
+                </div>
 
-                            <!-- Experience Section (Timeline) -->
-                            <section id="experience" class="py-20 relative">
-                                <div class="max-w-4xl mx-auto px-6">
-                                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-16 text-center reveal">
-                                        Trayectoria Profesional
-                                    </h2>
+            </div>
+        </div>
+    </section>
 
-                                    <div
-                                        class="space-y-12 relative before:content-[''] before:absolute before:left-4 md:before:left-1/2 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-fuchsia-500 before:to-cyan-500 before:opacity-30">
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-fuchsia-900/10 pointer-events-none">
+        </div>
 
-                                        <!-- Item 1 -->
-                                        <div class="relative flex flex-col md:flex-row gap-8 items-center reveal">
-                                            <div class="md:w-1/2 md:text-right order-2 md:order-1">
-                                                <div
-                                                    class="glass-card p-6 rounded-2xl inline-block text-left md:text-right w-full">
-                                                    <span class="text-fuchsia-400 text-sm font-bold tracking-wider">AGO
-                                                        2023 - NOV 2023</span>
-                                                    <h3 class="text-xl font-bold mt-2">Practicante Pre Profesional</h3>
-                                                    <p class="text-gray-400 text-sm mt-1">UGEL N° 03, Lima</p>
-                                                    <p class="mt-4 text-gray-300 text-sm">Desarrollo de aplicaciones
-                                                        web, web scraping con
-                                                        Python y optimización de gestión educativa.</p>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-fuchsia-500 shadow-[0_0_10px_#c026d3] order-1 md:order-2">
-                                            </div>
-                                            <div class="md:w-1/2 order-3"></div>
-                                        </div>
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">¿Listo para despegar?</h2>
+                <p class="text-gray-400 mb-8 text-lg">
+                    Estoy disponible para nuevos proyectos y colaboraciones. Si tienes una idea innovadora, hablemos.
+                </p>
 
-                                        <!-- Item 2 -->
-                                        <div class="relative flex flex-col md:flex-row gap-8 items-center reveal">
-                                            <div class="md:w-1/2 order-2 md:order-1"></div>
-                                            <div
-                                                class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_10px_#06b6d4] order-1 md:order-2">
-                                            </div>
-                                            <div class="md:w-1/2 order-3 md:order-3">
-                                                <div class="glass-card p-6 rounded-2xl w-full">
-                                                    <span class="text-cyan-400 text-sm font-bold tracking-wider">ENE
-                                                        2018 - JUL 2023</span>
-                                                    <h3 class="text-xl font-bold mt-2">Administrador</h3>
-                                                    <p class="text-gray-400 text-sm mt-1">Negocio Independiente</p>
-                                                    <p class="mt-4 text-gray-300 text-sm">Gestión integral de
-                                                        operaciones, implementación de
-                                                        sistemas y estrategias de marketing.</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm text-gray-400 ml-1">Nombre</label>
+                            <input type="text"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-fuchsia-500 focus:bg-white/10 transition-all"
+                                placeholder="Tu nombre">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm text-gray-400 ml-1">Email</label>
+                            <input type="email"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-fuchsia-500 focus:bg-white/10 transition-all"
+                                placeholder="tu@email.com">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm text-gray-400 ml-1">Mensaje</label>
+                        <textarea rows="4"
+                            class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-fuchsia-500 focus:bg-white/10 transition-all"
+                            placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                    </div>
+                    <a href="mailto:josericky97@gmail.com"
+                        class="inline-block w-full py-4 rounded-xl bg-gradient-to-r from-fuchsia-600 to-cyan-600 text-white font-bold text-center hover:shadow-[0_0_30px_rgba(192,38,211,0.4)] transition-all transform hover:-translate-y-1">
+                        Enviar Transmisión
+                    </a>
+                </form>
 
-                                        <!-- Item 3 -->
-                                        <div class="relative flex flex-col md:flex-row gap-8 items-center reveal">
-                                            <div class="md:w-1/2 md:text-right order-2 md:order-1">
-                                                <div
-                                                    class="glass-card p-6 rounded-2xl inline-block text-left md:text-right w-full">
-                                                    <span class="text-purple-400 text-sm font-bold tracking-wider">MAR
-                                                        2021 - DIC 2021</span>
-                                                    <h3 class="text-xl font-bold mt-2">Analista de Sistemas</h3>
-                                                    <p class="text-gray-400 text-sm mt-1">Import Export JG SAC</p>
-                                                    <p class="mt-4 text-gray-300 text-sm">Supervisión de procesos,
-                                                        análisis empresarial y diseño
-                                                        de soluciones tecnológicas.</p>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7] order-1 md:order-2">
-                                            </div>
-                                            <div class="md:w-1/2 order-3"></div>
-                                        </div>
+                <div class="mt-12 flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
+                            class="material-symbols-outlined text-3xl">mail</span></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
+                            class="material-symbols-outlined text-3xl">code</span></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
+                            class="material-symbols-outlined text-3xl">terminal</span></a>
+                </div>
+            </div>
 
-                                    </div>
-                                </div>
-                            </section>
+            <div class="h-[400px] lg:h-[600px] flex items-center justify-center reveal delay-200 relative">
+                <!-- Lottie Animation: Planet/Tech -->
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_kkflmtur.json"
+                    background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay>
+                </lottie-player>
+            </div>
+        </div>
+    </section>
 
-                            <!-- Contact Section -->
-                            <section id="contact" class="py-20 relative overflow-hidden">
-                                <div
-                                    class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-fuchsia-900/10 pointer-events-none">
-                                </div>
+    <!-- Circular Navigation Menu -->
+    <div class="circular-menu">
+        <button class="menu-toggle" id="menuToggle">
+            <span class="material-symbols-outlined">palette</span>
+        </button>
+        <div class="menu-items" id="menuItems">
+            <a href="index.html" class="menu-item" data-tooltip="Inicio">
+                <span class="material-symbols-outlined">home</span>
+            </a>
+            <a href="cv.html" class="menu-item" data-tooltip="Nature">
+                <span class="material-symbols-outlined">eco</span>
+            </a>
+            <a href="cv_ocean.html" class="menu-item" data-tooltip="Ocean">
+                <span class="material-symbols-outlined">water_drop</span>
+            </a>
+            <a href="cv_sunset.html" class="menu-item" data-tooltip="Sunset">
+                <span class="material-symbols-outlined">wb_twilight</span>
+            </a>
+            <a href="cv_berry.html" class="menu-item" data-tooltip="Berry (Cosmic)">
+                <span class="material-symbols-outlined">rocket_launch</span>
+            </a>
+        </div>
+    </div>
 
-                                <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                                    <div class="reveal">
-                                        <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">¿Listo para
-                                            despegar?</h2>
-                                        <p class="text-gray-400 mb-8 text-lg">
-                                            Estoy disponible para nuevos proyectos y colaboraciones. Si tienes una idea
-                                            innovadora, hablemos.
-                                        </p>
+    <script>
+        // --- Typewriter Effect ---
+        const words = ["Ingeniero de Sistemas", "Desarrollador Full Stack", "Innovador Tecnológico"];
+        let i = 0;
+        let timer;
 
-                                        <form class="space-y-6">
-                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                                <div class="space-y-2">
-                                                    <label class="text-sm text-gray-400 ml-1">Nombre</label>
-                                                    <input type="text"
-                                                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-fuchsia-500 focus:bg-white/10 transition-all"
-                                                        placeholder="Tu nombre">
-                                                </div>
-                                                <div class="space-y-2">
-                                                    <label class="text-sm text-gray-400 ml-1">Email</label>
-                                                    <input type="email"
-                                                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-fuchsia-500 focus:bg-white/10 transition-all"
-                                                        placeholder="tu@email.com">
-                                                </div>
-                                            </div>
-                                            <div class="space-y-2">
-                                                <label class="text-sm text-gray-400 ml-1">Mensaje</label>
-                                                <textarea rows="4"
-                                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-fuchsia-500 focus:bg-white/10 transition-all"
-                                                    placeholder="Cuéntame sobre tu proyecto..."></textarea>
-                                            </div>
-                                            <a href="mailto:josericky97@gmail.com"
-                                                class="inline-block w-full py-4 rounded-xl bg-gradient-to-r from-fuchsia-600 to-cyan-600 text-white font-bold text-center hover:shadow-[0_0_30px_rgba(192,38,211,0.4)] transition-all transform hover:-translate-y-1">
-                                                Enviar Transmisión
-                                            </a>
-                                        </form>
+        function typeWriter() {
+            const heading = document.getElementById("typewriter");
+            const word = words[i];
+            let j = 0;
+            let isDeleting = false;
 
-                                        <div class="mt-12 flex gap-6">
-                                            <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
-                                                    class="material-symbols-outlined text-3xl">mail</span></a>
-                                            <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
-                                                    class="material-symbols-outlined text-3xl">code</span></a>
-                                            <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
-                                                    class="material-symbols-outlined text-3xl">terminal</span></a>
-                                        </div>
-                                    </div>
+            function loop() {
+                heading.innerHTML = word.substring(0, j);
 
-                                    <div
-                                        class="h-[400px] lg:h-[600px] flex items-center justify-center reveal delay-200 relative">
-                                        <!-- Lottie Animation: Planet/Tech -->
-                                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_kkflmtur.json"
-                                            background="transparent" speed="1" style="width: 100%; height: 100%;" loop
-                                            autoplay>
-                                        </lottie-player>
-                                    </div>
-                                </div>
-                            </section>
+                if (!isDeleting && j < word.length) {
+                    j++;
+                    timer = setTimeout(loop, 100);
+                } else if (isDeleting && j > 0) {
+                    j--;
+                    timer = setTimeout(loop, 50);
+                } else {
+                    isDeleting = !isDeleting;
+                    if (!isDeleting) {
+                        i = (i + 1) % words.length;
+                        timer = setTimeout(typeWriter, 500); // Wait before typing next word
+                        return;
+                    }
+                    timer = setTimeout(loop, 1000); // Wait before deleting
+                }
+            }
+            loop();
+        }
+        typeWriter();
 
-                            <!-- Circular Navigation Menu -->
-                            <div class="circular-menu">
-                                <button class="menu-toggle" id="menuToggle">
-                                    <span class="material-symbols-outlined">palette</span>
-                                </button>
-                                <div class="menu-items" id="menuItems">
-                                    <a href="index.html" class="menu-item" data-tooltip="Inicio">
-                                        <span class="material-symbols-outlined">home</span>
-                                    </a>
-                                    <a href="cv.html" class="menu-item" data-tooltip="Nature">
-                                        <span class="material-symbols-outlined">eco</span>
-                                    </a>
-                                    <a href="cv_ocean.html" class="menu-item" data-tooltip="Ocean">
-                                        <span class="material-symbols-outlined">water_drop</span>
-                                    </a>
-                                    <a href="cv_sunset.html" class="menu-item" data-tooltip="Sunset">
-                                        <span class="material-symbols-outlined">wb_twilight</span>
-                                    </a>
-                                    <a href="cv_berry.html" class="menu-item" data-tooltip="Berry (Cosmic)">
-                                        <span class="material-symbols-outlined">rocket_launch</span>
-                                    </a>
-                                </div>
-                            </div>
+        // --- Scroll Reveal ---
+        const revealElements = document.querySelectorAll('.reveal');
 
-                            <script>
-                                // --- Typewriter Effect ---
-                                const words = ["Ingeniero de Sistemas", "Desarrollador Full Stack", "Innovador Tecnológico"];
-                                let i = 0;
-                                let timer;
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
 
-                                function typeWriter() {
-                                    const heading = document.getElementById("typewriter");
-                                    const word = words[i];
-                                    let j = 0;
-                                    let isDeleting = false;
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
 
-                                    function loop() {
-                                        heading.innerHTML = word.substring(0, j);
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Trigger once on load
 
-                                        if (!isDeleting && j < word.length) {
-                                            j++;
-                                            timer = setTimeout(loop, 100);
-                                        } else if (isDeleting && j > 0) {
-                                            j--;
-                                            timer = setTimeout(loop, 50);
-                                        } else {
-                                            isDeleting = !isDeleting;
-                                            if (!isDeleting) {
-                                                i = (i + 1) % words.length;
-                                                timer = setTimeout(typeWriter, 500); // Wait before typing next word
-                                                return;
-                                            }
-                                            timer = setTimeout(loop, 1000); // Wait before deleting
-                                        }
-                                    }
-                                    loop();
-                                }
-                                typeWriter();
+        // --- Circular Menu Logic ---
+        const menuToggle = document.getElementById('menuToggle');
+        const menuItems = document.getElementById('menuItems');
 
-                                // --- Scroll Reveal ---
-                                const revealElements = document.querySelectorAll('.reveal');
+        menuToggle.addEventListener('click', () => {
+            menuItems.classList.toggle('active');
+            const icon = menuToggle.querySelector('.material-symbols-outlined');
+            if (menuItems.classList.contains('active')) {
+                icon.textContent = 'close';
+                menuToggle.style.transform = 'rotate(90deg)';
+            } else {
+                icon.textContent = 'palette';
+                menuToggle.style.transform = 'rotate(0deg)';
+            }
+        });
 
-                                const revealOnScroll = () => {
-                                    const windowHeight = window.innerHeight;
-                                    const elementVisible = 150;
+        // --- CountUp Animation Logic ---
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // The lower the slower
 
-                                    revealElements.forEach((reveal) => {
-                                        const elementTop = reveal.getBoundingClientRect().top;
-                                        if (elementTop < windowHeight - elementVisible) {
-                                            reveal.classList.add('active');
-                                        }
-                                    });
-                                };
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
 
-                                window.addEventListener('scroll', revealOnScroll);
-                                revealOnScroll(); // Trigger once on load
+                    // Lower inc to slow and higher to slow
+                    const inc = target / speed;
 
-                                // --- Circular Menu Logic ---
-                                const menuToggle = document.getElementById('menuToggle');
-                                const menuItems = document.getElementById('menuItems');
+                    if (count < target) {
+                        // Add inc to count and output in counter
+                        counter.innerText = Math.ceil(count + inc);
+                        // Call function every ms
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        };
 
-                                menuToggle.addEventListener('click', () => {
-                                    menuItems.classList.toggle('active');
-                                    const icon = menuToggle.querySelector('.material-symbols-outlined');
-                                    if (menuItems.classList.contains('active')) {
-                                        icon.textContent = 'close';
-                                        menuToggle.style.transform = 'rotate(90deg)';
-                                    } else {
-                                        icon.textContent = 'palette';
-                                        menuToggle.style.transform = 'rotate(0deg)';
-                                    }
-                                });
+        // Trigger CountUp when Stats Section is in view
+        const statsSection = document.getElementById('stats-section');
+        const observerOptions = {
+            root: null,
+            threshold: 0.5 // Trigger when 50% of the section is visible
+        };
 
-                                // --- CountUp Animation ---
-                                const animateCounters = () => {
-                                    const counters = document.querySelectorAll('.counter');
-                                    const speed = 200; // The lower the slower
+        const statsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
 
-                                    counters.forEach(counter => {
-                                        const updateCount = () => {
-                                            const target = +counter.getAttribute('data-target');
-                                            const suffix = counter.getAttribute('data-suffix') || '';
-                                            const count = +counter.innerText.replace(suffix, ''); // Remove suffix to get number
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
 
-                                            // Lower increment for smoother animation on small numbers
-                                            const inc = target / speed;
-
-                                            if (count < target) {
-                                                // Add inc to count and round up
-                                                counter.innerText = Math.ceil(count + inc) + suffix;
-                                                setTimeout(updateCount, 20);
-                                            } else {
-                                                counter.innerText = target + suffix;
-                                            }
-                                        };
-                                        updateCount();
-                                    });
-                                }
-
-                                // Trigger animation when stats grid is in view
-                                const statsSection = document.querySelector('.stats-grid');
-                                if (statsSection) {
-                                    const observer = new IntersectionObserver((entries) => {
-                                        entries.forEach(entry => {
-                                            if (entry.isIntersecting) {
-                                                animateCounters();
-                                                observer.unobserve(entry.target); // Run only once
-                                            }
-                                        });
-                                    }, { threshold: 0.5 });
-
-                                    observer.observe(statsSection);
-                                }
-                            </script>
-                        </body>
+        // --- Lottie Fallback/Injection ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const players = document.querySelectorAll('lottie-player');
+            if (players[0]) {
+                players[0].setAttribute('src', 'https://assets3.lottiefiles.com/packages/lf20_w51pcehl.json');
+            }
+            if (players[1]) {
+                players[1].setAttribute('src', 'https://assets2.lottiefiles.com/packages/lf20_kkflmtur.json');
+            }
+        });
+    </script>
+</body>
 
 </html>
