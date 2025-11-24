@@ -1,387 +1,323 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html class="dark" lang="es">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>José Ricardo García Quispe - Sunset CV</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <title>CV :: José Ricardo García Quispe [Sunset]</title>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;700&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
-    <style type="text/tailwindcss">
-        @layer base {
-            :root {
-                --cream: #fff7ed; /* Orange 50 */
-                --dark-green: #7c2d12; /* Orange 900 */
-            }
-        }
-    </style>
-    <script id="tailwind-config">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#ea580c" /* Orange 600 */,
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#121620",
-                        "cream": "var(--cream)",
-                        "dark-green": "var(--dark-green)",
-                        "gold": "#D4AF37",
-                        "subtle-grey": "#A0A0A0",
-                        "light-green": "#D5DED5",
-                        "lighter-cream": "#E8E7DB",
+                        primary: "#fb923c",
+                        "background-dark": "#1a1a1a",
+                        "editor-dark": "#2a2a2a",
+                        keyword: "#f97316",
+                        type: "#fde047",
+                        string: "#a5d6ff",
+                        comment: "#a16207",
+                        variable: "#fbbf24",
+                        "section-header": "#f97316",
+                        "top-nav": "rgba(26, 26, 26, 0.8)",
                     },
                     fontFamily: {
-                        "display": ["Spline Sans", "sans-serif"]
+                        sans: ["Fira Code", "monospace"],
+                        mono: ["Fira Code", "monospace"],
                     },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
                 },
             },
-        }
+        };
     </script>
+    <style>
+        @keyframes move-background {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 0 200%;
+            }
+        }
+        body {
+            font-family: 'Fira Code', monospace;
+            scroll-behavior: smooth;
+            background-color: theme('colors.background-dark');
+            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: move-background 20s linear infinite;
+        }
+        .top-nav a:hover {
+            color: theme('colors.primary');
+        }
+        .code-block {
+             background-color: theme('colors.editor-dark');
+             border: 1px solid #4a4a4a;
+             border-radius: 0.5rem;
+             padding: 1.5rem;
+             margin-top: 1rem;
+        }
+        .comment-block {
+            background-color: rgba(253, 224, 71, 0.05);
+            border-left: 3px solid theme('colors.comment');
+            padding: 1rem;
+            font-style: italic;
+            color: #ccc;
+        }
+        .ti-cursor {
+            color: theme('colors.primary');
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .animated-text { min-height: 24px; } /* Prevent layout shift */
+    </style>
 </head>
 
-<body class="font-display bg-cream page-transition">
-    <header
-        class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between whitespace-nowrap bg-transparent px-6 sm:px-10 py-6 font-display">
-        <div class="flex items-center gap-2">
-            <div class="w-7 h-7 text-[#3655D5]">
-                <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 0L48 24L24 48L0 24L24 0ZM12 24L24 36L36 24L24 12L12 24Z"></path>
-                </svg>
+<body class="text-gray-300 font-sans">
+
+    <!-- Top Navigation -->
+    <nav class="sticky top-0 z-40 w-full backdrop-blur-lg bg-top-nav border-b border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                 <div class="flex-shrink-0">
+                    <a href="index.html" class="text-white font-bold text-lg flex items-center gap-2 hover:text-primary transition-colors">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>INICIO</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="#summary" class="text-gray-300 transition-colors duration-200">SOBRE MÍ</a>
+                    <a href="#experience" class="text-gray-300 transition-colors duration-200">EXPERIENCIA</a>
+                    <a href="#education" class="text-gray-300 transition-colors duration-200">FORMACIÓN</a>
+                </div>
             </div>
-            <h2 class="text-dark-green text-xl font-bold leading-tight tracking-tight">LUMERT</h2>
         </div>
-        <div class="hidden md:flex flex-1 justify-end items-center gap-8">
-            <button id="back-button"
-                class="text-white text-sm font-medium leading-normal hover:text-gray-300 transition-colors">BACK</button>
-            <a class="text-white text-sm font-medium leading-normal hover:text-gray-300 transition-colors"
-                href="#">TOUR</a>
-            <a class="text-white text-sm font-medium leading-normal hover:text-gray-300 transition-colors"
-                href="#">MEET</a>
-        </div>
-        <div class="md:hidden">
-            <button class="text-white p-2 rounded-full">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
-        </div>
-    </header>
-    <main class="relative min-h-screen">
-        <div class="fixed top-0 left-0 w-full h-full lg:grid lg:grid-cols-2">
-            <div class="bg-cream"></div>
-            <div class="bg-dark-green"></div>
-        </div>
-        <div class="relative z-10 w-full max-w-7xl mx-auto py-16 px-6 sm:px-12">
-            <div class="flex flex-col items-center w-full">
-                <div class="flex flex-col gap-8 max-w-lg w-full relative z-20 mb-16 lg:mb-24">
-                    <div class="relative bg-white p-6 sm:p-8 rounded-lg shadow-lg">
-                        <div
-                            class="absolute -left-12 sm:-left-16 -top-10 sm:-top-14 w-28 sm:w-32 h-28 sm:h-32 bg-primary rounded-xl transform -rotate-12 z-0">
-                        </div>
-                        <div
-                            class="absolute -left-16 sm:-left-20 -top-6 sm:-top-10 w-28 sm:w-32 h-28 sm:h-32 bg-primary rounded-xl transform rotate-12 z-0 opacity-50">
-                        </div>
-                        <div class="flex flex-col items-center text-center gap-6 relative">
-                            <img class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-white shadow-lg -mt-20 sm:-mt-24"
-                                data-alt="Professional headshot of Jane Doe" src="images/profile.png" />
-                            <div class="flex flex-col gap-2">
-                                <h1
-                                    class="text-dark-green text-4xl sm:text-5xl font-black leading-tight tracking-tighter">
-                                    José Ricardo García Quispe</h1>
-                                <h2 class="text-dark-green text-xl font-medium">Ingeniero de Sistemas</h2>
-                            </div>
-                            <p class="text-dark-green/80 text-base font-normal leading-relaxed">
-                                Apasionado por la innovación tecnológica. He logrado optimizar procesos y crear sistemas
-                                robustos. Mi experiencia como desarrollador Full Stack incluye web scraping con Python,
-                                conocimientos en Google Cloud y SEO. Estoy listo para liderar proyectos digitales de
-                                alto impacto.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <div
-                            class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">💡</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Analítico</p>
-                        </div>
-                        <div
-                            class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">🔧</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Solucionador de problemas</p>
-                        </div>
-                        <div
-                            class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">🔄</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Adaptabilidad</p>
-                        </div>
-                        <div
-                            class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">🤖</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Machine Learning</p>
-                        </div>
-                        <div
-                            class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">☁️</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Cloud Computing</p>
-                        </div>
-                        <div
-                            class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">🤝</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Trabajo en Equipo</p>
-                        </div>
-                        <div
-                            class="flex flex-col items-center gap-2 bg-white py-2.5 px-4 text-center rounded-lg shadow-sm">
-                            <span class="text-2xl">🤔</span>
-                            <p class="text-dark-green text-sm font-medium leading-normal">Pensamiento Crítico</p>
-                        </div>
-                    </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Left Panel -->
+            <aside class="lg:col-span-1 lg:sticky top-24 self-start">
+                <div class="bg-editor-dark p-6 rounded-lg border border-gray-700/50">
+                    <img src="https://i.imgur.com/G5dlhEk.png" alt="Foto de José Ricardo García Quispe"
+                        class="rounded-full w-32 h-32 mx-auto border-4 border-primary shadow-lg mb-6">
+                    <h1 class="font-black text-2xl text-center text-white">JOSÉ R. GARCÍA QUISPE</h1>
+                    <p class="text-primary font-bold text-md text-center tracking-wider mb-6">INGENIERO DE SISTEMAS</p>
+
+                    <h2 class="text-section-header font-bold text-lg mb-2"><i class="fas fa-cogs fa-fw mr-2"></i>SKILLS_TECNICOS</h2>
+                    <p class="text-gray-400 text-sm mb-4">MachineLearning, AnalisisEmpresarial, CloudComputing, Ciberseguridad, Automatizacion, WebScraping, SEO</p>
+
+                    <h2 class="text-section-header font-bold text-lg mt-6 mb-2"><i class="fas fa-users fa-fw mr-2"></i>SKILLS_BLANDOS</h2>
+                    <p class="text-gray-400 text-sm mb-4">Analitico, SolucionadorDeProblemas, Adaptabilidad, PensamientoCritico, TrabajoEnEquipo, Comunicacion</p>
+                    
+                    <h2 class="text-section-header font-bold text-lg mt-6 mb-2"><i class="fas fa-language fa-fw mr-2"></i>IDIOMAS</h2>
+                    <p class="text-gray-400 text-sm">Español: <span class="text-string">"Nativo"</span>, Inglés: <span class="text-string">"Intermedio"</span></p>
                 </div>
-                <div class="w-full">
-                    <div class="relative">
-                        <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-dark-green/20 -translate-x-1/2"></div>
-                        <div class="max-w-4xl mx-auto space-y-12">
-                            <!-- Educación -->
-                            <div class="relative flex items-center w-full">
-                                <div class="w-1/2 pr-8 text-right">
-                                    <div
-                                        class="bg-lighter-cream p-6 rounded-lg inline-block text-left shadow-sm max-w-md">
-                                        <p class="text-dark-green text-lg font-medium leading-normal">Estudiante de
-                                            Ingeniería de Sistemas</p>
-                                        <p class="text-dark-green/70 text-base font-normal leading-normal">Universidad
-                                            de Lima</p>
-                                        <p class="text-dark-green/90 text-sm mt-2">Estudiante del décimo ciclo de la
-                                            carrera de ing. de sistemas altamente capacitado en el diseño, desarrollo,
-                                            implementación y gestión de sistemas y tecnologías de la información,
-                                            preparado para enfrentar los desafíos tecnológicos en diversos sectores,
-                                            como el empresarial, gubernamental y académico. además, estoy capacitado
-                                            para seguir aprendiendo y adaptándome en un campo en constante evolución.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="absolute left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        class="h-24 w-24 p-2 rounded-full bg-cream border-2 border-dark-green/30 flex items-center justify-center font-bold text-dark-green text-center text-sm">
-                                        2019 - Presente</div>
-                                </div>
-                                <div class="w-1/2 pl-8">
-                                </div>
-                            </div>
-                            <!-- Experiencia 1 -->
-                            <div class="relative flex items-center w-full">
-                                <div class="w-1/2 pr-8">
-                                </div>
-                                <div class="absolute left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        class="h-24 w-24 p-2 rounded-full bg-cream border-2 border-dark-green/30 flex items-center justify-center font-bold text-dark-green text-center text-sm">
-                                        ago. 2023 - nov. 2023</div>
-                                </div>
-                                <div class="w-1/2 pl-8 text-left">
-                                    <div
-                                        class="bg-light-green p-6 rounded-lg inline-block text-left shadow-sm max-w-md">
-                                        <p class="text-dark-green text-lg font-medium leading-normal">Practicante Pre
-                                            Profesional</p>
-                                        <p class="text-dark-green/70 text-base font-normal leading-normal">Unidad de
-                                            Gestión Educativa N° 03</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Rol:</span> Desarrollé
-                                            aplicaciones web y utilicé técnicas de web scraping con Python para mejorar
-                                            la gestión educativa. Además, contribuí en la elaboración de manuales BPMN y
-                                            la guía para la nueva página web de la UGEL 03.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Valor:</span> Implementé
-                                            soluciones tecnológicas que optimizaron procesos y recopilaron datos
-                                            relevantes, además de colaborar en la estandarización de procesos
-                                            administrativos y educativos.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Aprendizaje:</span> Adquirí
-                                            habilidades en desarrollo web, web scraping con Python, análisis de datos y
-                                            elaboración de BPMN, fortaleciendo mi contribución a la gestión educativa
-                                            mediante la tecnología y mejora continua de procesos.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Experiencia 2 -->
-                            <div class="relative flex items-center w-full">
-                                <div class="w-1/2 pr-8 text-right">
-                                    <div
-                                        class="bg-lighter-cream p-6 rounded-lg inline-block text-left shadow-sm max-w-md">
-                                        <p class="text-dark-green text-lg font-medium leading-normal">Administrador</p>
-                                        <p class="text-dark-green/70 text-base font-normal leading-normal">Negocio
-                                            Independiente</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Rol:</span> Implementé todas
-                                            las operaciones, desde la gestión financiera hasta la implementación de
-                                            sistemas tecnológicos, mientras ofrecía atención al cliente y desarrollaba
-                                            estrategias de marketing.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Valor:</span> Contribuí a la
-                                            eficiencia operativa y sostenibilidad mediante la gestión integral de
-                                            operaciones y el enfoque en la experiencia del cliente.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Aprendizaje:</span> Desarrollé
-                                            habilidades en gestión financiera, cumplimiento normativo, atención al
-                                            cliente, y estrategias de marketing, fortaleciendo mi capacidad para liderar
-                                            operaciones complejas de manera efectiva.</p>
-                                    </div>
-                                </div>
-                                <div class="absolute left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        class="h-24 w-24 p-2 rounded-full bg-cream border-2 border-dark-green/30 flex items-center justify-center font-bold text-dark-green text-center text-sm">
-                                        ene. 2018 - jul. 2023</div>
-                                </div>
-                                <div class="w-1/2 pl-8">
-                                </div>
-                            </div>
-                            <!-- Experiencia 3 -->
-                            <div class="relative flex items-center w-full">
-                                <div class="w-1/2 pr-8">
-                                </div>
-                                <div class="absolute left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        class="h-24 w-24 p-2 rounded-full bg-cream border-2 border-dark-green/30 flex items-center justify-center font-bold text-dark-green text-center text-sm">
-                                        mar. 2021 - dic. 2021</div>
-                                </div>
-                                <div class="w-1/2 pl-8 text-left">
-                                    <div
-                                        class="bg-light-green p-6 rounded-lg inline-block text-left shadow-sm max-w-md">
-                                        <p class="text-dark-green text-lg font-medium leading-normal">Analista de
-                                            Sistemas</p>
-                                        <p class="text-dark-green/70 text-base font-normal leading-normal">Import Export
-                                            JG SAC</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Rol:</span> Supervisé procesos
-                                            en diversas áreas, desarrollando habilidades en análisis empresarial y
-                                            diseño de soluciones tecnológicas.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Valor:</span> Aporté eficiencia
-                                            operativa mediante la implementación exitosa de soluciones de software y
-                                            hardware, liderando proyectos de mantenimiento y seguridad.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Aprendizaje:</span> Adquirí
-                                            destrezas en gestión de proyectos, pruebas de sistemas y depuración,
-                                            fortaleciendo mi capacidad para impulsar la innovación en entornos
-                                            empresariales.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Experiencia 4 -->
-                            <div class="relative flex items-center w-full">
-                                <div class="w-1/2 pr-8 text-right">
-                                    <div
-                                        class="bg-lighter-cream p-6 rounded-lg inline-block text-left shadow-sm max-w-md">
-                                        <p class="text-dark-green text-lg font-medium leading-normal">Analista de
-                                            Procesos y Mejora Continua</p>
-                                        <p class="text-dark-green/70 text-base font-normal leading-normal">Import Export
-                                            JG SAC</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Rol:</span> Durante mi
-                                            experiencia en la empresa, identifiqué procesos generadores de cuellos de
-                                            botella y desarrollé medidas preventivas para minimizar la pérdida de
-                                            materias primas. Logré reducir la adquisición de insumos en un 40% y
-                                            optimicé el tiempo de fabricación.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Valor:</span> Contribuí
-                                            significativamente a la eficiencia operativa al implementar medidas
-                                            preventivas que redujeron los cuellos de botella y maximizaron la
-                                            utilización de recursos.</p>
-                                        <p class="text-dark-green/90 text-sm mt-2"><span>Aprendizaje:</span> Adquirí
-                                            habilidades en gestión de procesos, optimización de recursos y mejora
-                                            continua, fortaleciendo mi capacidad para impulsar la eficiencia y reducir
-                                            costos en entornos empresariales.</p>
-                                    </div>
-                                </div>
-                                <div class="absolute left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        class="h-24 w-24 p-2 rounded-full bg-cream border-2 border-dark-green/30 flex items-center justify-center font-bold text-dark-green text-center text-sm">
-                                        mar. 2015 - mar. 2016</div>
-                                </div>
-                                <div class="w-1/2 pl-8">
-                                </div>
-                            </div>
+            </aside>
+
+            <!-- Right Panel -->
+            <div class="lg:col-span-2 space-y-12">
+
+                <!-- SUMMARY SECTION -->
+                <section id="summary">
+                    <h2 class="text-2xl font-bold text-section-header mb-4 flex items-center gap-3"><i class="fas fa-user-circle"></i>SOBRE MÍ</h2>
+                     <div class="code-block">
+                        <p id="summary-text" class="text-gray-300 leading-relaxed animated-text"></p>
+                    </div>
+                </section>
+
+                <!-- EXPERIENCE SECTION -->
+                <section id="experience">
+                    <h2 class="text-2xl font-bold text-section-header mb-4 flex items-center gap-3"><i class="fas fa-briefcase"></i>EXPERIENCIA LABORAL</h2>
+                    <div class="code-block space-y-8">
+                        <!-- Job 1 -->
+                        <div>
+                           <p id="job1-title" class="animated-text"></p>
+                           <div id="job1-comment" class="comment-block mt-4 opacity-0 transition-opacity duration-500">
+                                <p><span class="font-bold text-gray-200">Rol:</span> Desarrollo de apps web, web scraping, manuales BPMN.</p>
+                                <p><span class="font-bold text-gray-200">Valor:</span> Optimización de procesos y recopilación de datos.</p>
+                                <p><span class="font-bold text-gray-200">Aprendizaje:</span> Skills en desarrollo web, scraping, y análisis de datos.</p>
+                           </div>
+                        </div>
+                         <!-- Job 2 -->
+                        <div>
+                           <p id="job2-title" class="animated-text"></p>
+                           <div id="job2-comment" class="comment-block mt-4 opacity-0 transition-opacity duration-500">
+                                <p><span class="font-bold text-gray-200">Rol:</span> Gestión integral de operaciones, finanzas, tecnología y mkt.</p>
+                                <p><span class="font-bold text-gray-200">Valor:</span> Aumento de eficiencia operativa y sostenibilidad del negocio.</p>
+                                <p><span class="font-bold text-gray-200">Aprendizaje:</span> Liderazgo de operaciones complejas y gestión financiera.</p>
+                           </div>
+                        </div>
+                        <!-- Job 3 & 4 -->
+                        <div>
+                           <p id="job3-title" class="animated-text"></p>
+                           <div id="job3-comment" class="comment-block mt-4 opacity-0 transition-opacity duration-500">
+                                <p><span class="font-bold text-gray-200">Logros Clave:</span></p>
+                                <ul class="list-disc list-inside text-gray-400">
+                                   <li>Supervisión y diseño de soluciones tecnológicas.</li>
+                                   <li>Implementación de S/W y H/W para mejorar eficiencia.</li>
+                                   <li>Identificación de cuellos de botella, reduciendo 40% en adquisición de insumos.</li>
+                                   <li>Adquisición de skills en gestión de proyectos, testing y mejora continua.</li>
+                                </ul>
+                           </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <!-- EDUCATION & CERTS SECTION -->
+                <section id="education">
+                    <h2 class="text-2xl font-bold text-section-header mb-4 flex items-center gap-3"><i class="fas fa-graduation-cap"></i>FORMACIÓN Y CERTIFICADOS</h2>
+                     <div class="code-block space-y-6">
+                        <!-- Education -->
+                        <div id="education-title" class="animated-text"></div>
+                        <!-- Certs -->
+                         <div id="certs-title" class="animated-text mt-6"></div>
+                    </div>
+                </section>
             </div>
         </div>
     </main>
-    <script>
-        document.getElementById('back-button').addEventListener('click', () => {
-            document.body.classList.add('page-slide-out-right');
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 500);
-        });
-    </script>
 
-    <!-- Circular Navigation Menu -->
-    <div class="fixed bottom-8 left-8 z-50 group">
+    <!-- Circular Navigation Menu (FAB) -->
+    <div class="fixed bottom-8 right-8 z-50 group">
         <button
             class="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center transition-transform duration-300 group-hover:rotate-90 focus:outline-none">
             <span class="material-symbols-outlined text-2xl">palette</span>
         </button>
-
-        <!-- Menu Items -->
-        <div class="absolute bottom-0 left-0 w-14 h-14 pointer-events-none">
-            <!-- Theme 1: Default (Home) -->
+        <div class="absolute bottom-0 right-0 w-14 h-14 pointer-events-none flex items-center justify-center">
             <a href="index.html"
-                class="absolute bottom-0 left-0 w-10 h-10 bg-blue-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[80px] group-hover:left-0 pointer-events-auto hover:scale-110"
-                data-tooltip="Inicio">
+                class="absolute w-12 h-12 bg-blue-600 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-20 pointer-events-auto hover:scale-110 hover:bg-blue-500">
                 <span class="material-symbols-outlined text-lg">home</span>
             </a>
-            <!-- Theme 2: Nature -->
             <a href="cv.html"
-                class="absolute bottom-0 left-0 w-10 h-10 bg-emerald-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-75 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[70px] group-hover:left-[50px] pointer-events-auto hover:scale-110"
-                data-tooltip="Nature">
+                class="absolute w-12 h-12 bg-emerald-600 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-75 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-12 group-hover:translate-x-16 pointer-events-auto hover:scale-110 hover:bg-emerald-500">
                 <span class="material-symbols-outlined text-lg">eco</span>
             </a>
-            <!-- Theme 3: Ocean -->
             <a href="cv_ocean.html"
-                class="absolute bottom-0 left-0 w-10 h-10 bg-cyan-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-100 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[40px] group-hover:left-[80px] pointer-events-auto hover:scale-110"
-                data-tooltip="Ocean">
+                class="absolute w-12 h-12 bg-cyan-600 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-100 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-20 pointer-events-auto hover:scale-110 hover:bg-cyan-500">
                 <span class="material-symbols-outlined text-lg">water_drop</span>
             </a>
-            <!-- Theme 4: Sunset -->
             <a href="cv_sunset.html"
-                class="absolute bottom-0 left-0 w-10 h-10 bg-orange-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-150 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-0 group-hover:left-[90px] pointer-events-auto hover:scale-110"
-                data-tooltip="Sunset">
+                class="absolute w-12 h-12 bg-orange-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-150 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-12 group-hover:translate-x-16 pointer-events-auto hover:scale-110 hover:bg-orange-400">
                 <span class="material-symbols-outlined text-lg">wb_twilight</span>
             </a>
-            <!-- Theme 5: Berry -->
             <a href="cv_berry.html"
-                class="absolute bottom-0 left-0 w-10 h-10 bg-fuchsia-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-200 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[-45px] group-hover:left-[80px] pointer-events-auto hover:scale-110"
-                data-tooltip="Berry (Cosmic)">
+                class="absolute w-12 h-12 bg-fuchsia-600 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-200 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-0 group-hover:translate-x-20 pointer-events-auto hover:scale-110 hover:bg-fuchsia-500">
                 <span class="material-symbols-outlined text-lg">rocket_launch</span>
             </a>
         </div>
     </div>
 
-    <style>
-        /* Custom Tooltip for Menu Items */
-        .fixed.bottom-8 a[data-tooltip]::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            left: 120%;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            padding: 0.25rem 0.75rem;
-            border-radius: 0.5rem;
-            font-size: 0.75rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s;
-            pointer-events: none;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .fixed.bottom-8 a[data-tooltip]:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Orange theme hover color */
-        .fixed.bottom-8 a:hover {
-            background-color: #ea580c !important;
-        }
-    </style>
     <script src="menu.js"></script>
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const typeItConfig = {
+                speed: 50,
+                startDelay: 900,
+                waitUntilVisible: true,
+                cursorChar: "▋",
+                afterComplete: (instance) => {
+                    instance.destroy();
+                }
+            };
+
+            new TypeIt('#summary-text', {
+                ...typeItConfig,
+                strings: "Soy un apasionado por la innovación tecnológica y he logrado optimizar procesos y crear sistemas robustos. Mi experiencia como desarrollador Full Stack incluye web scraping con Python, conocimientos en Google Cloud Platform y SEO. Estoy listo para liderar proyectos digitales de alto impacto.",
+            }).go();
+
+            new TypeIt('#job1-title', {
+                ...typeItConfig,
+                speed: 60,
+                afterComplete: async (instance) => {
+                    document.getElementById('job1-comment').style.opacity = 1;
+                    instance.destroy();
+                }
+            })
+            .type('<span class="keyword">const</span> <span class="variable">PRACTICANTE</span> = {<br>')
+            .pause(300)
+            .type('  <span class="type">empresa</span>: <span class="string">"UNIDAD DE GESTION EDUCATIVA N 03"</span>,<br>')
+            .pause(300)
+            .type('  <span class="type">periodo</span>: <span class="string">"ago. 2023 - nov. 2023"</span>,<br>')
+            .pause(300)
+            .type('};')
+            .go();
+
+            new TypeIt('#job2-title', {
+                ...typeItConfig,
+                speed: 60,
+                startDelay: 1500, // Stagger the start
+                 afterComplete: async (instance) => {
+                    document.getElementById('job2-comment').style.opacity = 1;
+                    instance.destroy();
+                }
+            })
+            .type('<span class="keyword">const</span> <span class="variable">ADMINISTRADOR</span> = {<br>')
+            .pause(300)
+            .type('  <span class="type">empresa</span>: <span class="string">"NEGOCIO INDEPENDIENTE"</span>,<br>')
+            .pause(300)
+            .type('  <span class="type">periodo</span>: <span class="string">"ene. 2018 - jul. 2023"</span>,<br>')
+            .pause(300)
+            .type('};')
+            .go();
+
+            new TypeIt('#job3-title', {
+                ...typeItConfig,
+                speed: 60,
+                startDelay: 2000, // Stagger the start
+                 afterComplete: async (instance) => {
+                    document.getElementById('job3-comment').style.opacity = 1;
+                    instance.destroy();
+                }
+            })
+            .type('<span class="keyword">const</span> <span class="variable">ANALISTA_JGSAC</span> = {<br>')
+            .pause(300)
+            .type('  <span class="type">empresa</span>: <span class="string">"IMPORT EXPORT JG SAC"</span>,<br>')
+            .pause(300)
+            .type('  <span class="type">roles</span>: [ <span class="string">"Analista de Sistemas"</span>, <span class="string">"Analista de Procesos"</span> ],<br>')
+            .pause(300)
+            .type('  <span class="type">periodo</span>: <span class="string">"mar. 2015 - dic. 2021"</span>,<br>')
+            .pause(300)
+            .type('};')
+            .go();
+
+            new TypeIt('#education-title', typeItConfig)
+            .type('<span class="keyword">const</span> <span class="variable">UNIVERSIDAD</span> = {<br>')
+            .pause(300)
+            .type('  <span class="type">institucion</span>: <span class="string">"Universidad de Lima"</span>,<br>')
+            .pause(300)
+            .type('  <span class="type">carrera</span>: <span class="string">"Ingeniería de Sistemas (10mo ciclo)"</span>,<br>')
+            .pause(300)
+            .type('  <span class="type">periodo</span>: <span class="string">"2019 - Presente"</span>,<br>')
+            .pause(300)
+            .type('};')
+            .go();
+
+            new TypeIt('#certs-title', typeItConfig)
+            .type('<span class="keyword">const</span> <span class="variable">CERTIFICADOS</span> = {<br>')
+            .pause(300)
+            .type('  <span class="type">SeguridadElectronica</span>: <span class="string">"INICTEL-UNI (2023)"</span>,<br>')
+            .pause(300)
+            .type('  <span class="type">PythonEssentials</span>: <span class="string">"PCAP Cisco (2022)"</span>,<br>')
+            .pause(300)
+            .type('};')
+            .go();
+        });
+    </script>
+
 </body>
 
 </html>
