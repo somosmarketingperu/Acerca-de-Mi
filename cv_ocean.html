@@ -371,35 +371,66 @@
             <!-- Theme 1: Default (Home) -->
             <a href="index.html"
                 class="absolute bottom-0 left-0 w-10 h-10 bg-blue-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[80px] group-hover:left-0 pointer-events-auto hover:scale-110"
-                title="Default">
+                data-tooltip="Inicio">
                 <span class="material-symbols-outlined text-lg">home</span>
             </a>
             <!-- Theme 2: Nature -->
             <a href="cv.html"
                 class="absolute bottom-0 left-0 w-10 h-10 bg-emerald-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-75 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[70px] group-hover:left-[50px] pointer-events-auto hover:scale-110"
-                title="Nature">
+                data-tooltip="Nature">
                 <span class="material-symbols-outlined text-lg">eco</span>
             </a>
             <!-- Theme 3: Ocean -->
             <a href="cv_ocean.html"
                 class="absolute bottom-0 left-0 w-10 h-10 bg-cyan-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-100 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[40px] group-hover:left-[80px] pointer-events-auto hover:scale-110"
-                title="Ocean">
+                data-tooltip="Ocean">
                 <span class="material-symbols-outlined text-lg">water_drop</span>
             </a>
             <!-- Theme 4: Sunset -->
             <a href="cv_sunset.html"
                 class="absolute bottom-0 left-0 w-10 h-10 bg-orange-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-150 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-0 group-hover:left-[90px] pointer-events-auto hover:scale-110"
-                title="Sunset">
+                data-tooltip="Sunset">
                 <span class="material-symbols-outlined text-lg">wb_twilight</span>
             </a>
             <!-- Theme 5: Berry -->
             <a href="cv_berry.html"
                 class="absolute bottom-0 left-0 w-10 h-10 bg-fuchsia-500 text-white rounded-full shadow-md flex items-center justify-center opacity-0 scale-0 transition-all duration-300 delay-200 group-hover:opacity-100 group-hover:scale-100 group-hover:bottom-[-45px] group-hover:left-[80px] pointer-events-auto hover:scale-110"
-                title="Berry">
+                data-tooltip="Berry (Cosmic)">
                 <span class="material-symbols-outlined text-lg">rocket_launch</span>
             </a>
         </div>
     </div>
+
+    <style>
+        /* Custom Tooltip for Menu Items */
+        .fixed.bottom-8 a[data-tooltip]::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 120%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .fixed.bottom-8 a[data-tooltip]:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Cyan theme hover color */
+        .fixed.bottom-8 a:hover {
+            background-color: #0284c7 !important;
+        }
+    </style>
     <script src="menu.js"></script>
 </body>
 
